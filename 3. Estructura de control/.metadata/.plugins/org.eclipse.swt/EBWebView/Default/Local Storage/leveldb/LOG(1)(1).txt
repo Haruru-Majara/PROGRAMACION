@@ -1,0 +1,2 @@
+2025/11/03-20:24:30.090 1a88 Creating DB G:\Mi unidad\DAW1\PROGRAMACION\3. Estructura de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb since it was missing.
+2025/11/03-20:24:30.511 1a88 Reusing MANIFEST G:\Mi unidad\DAW1\PROGRAMACION\3. Estructura de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001

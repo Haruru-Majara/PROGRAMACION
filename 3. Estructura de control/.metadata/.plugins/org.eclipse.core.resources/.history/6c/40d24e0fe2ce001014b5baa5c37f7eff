@@ -1,0 +1,11 @@
+package Ejercicios_Excepciones;
+
+public class ejercicio4 {
+
+	public static void main(String[] args) {
+		/*Modifica la función que valida el DNI para que dé error si los primeros
+		caracteres no son dígitos usando NumberFormatException.*/
+		
+	}
+
+}

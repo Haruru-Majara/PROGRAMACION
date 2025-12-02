@@ -1,0 +1,26 @@
+package ejemplos;
+
+import java.util.Scanner;
+
+public class restaurante2022 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int personas, acumuladorPersonas=0;
+		
+		Scanner sc=new Scanner(System.in);
+		
+		do {
+			System.out.println("¿Cuántas personas van a cenar?");
+			personas=sc.nextInt();
+			
+			if (personas <=0  || personas >80)
+				System.out.println("ERROR. Vuelva a introducir las personas");
+			else
+				acumuladorPersonas=acumuladorPersonas+personas;
+				
+		}while(acumuladorPersonas <=80);
+		
+	}
+
+}

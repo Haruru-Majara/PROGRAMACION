@@ -1,0 +1,9 @@
+package Ejercicios_Excepciones;
+
+public class DistintivoErroneoException {
+
+	public DistintivoErroneoException() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

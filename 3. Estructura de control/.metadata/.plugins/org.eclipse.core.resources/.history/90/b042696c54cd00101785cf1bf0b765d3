@@ -1,0 +1,29 @@
+package Ejercicios_Fechas;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class ejercicio4 {
+
+	public static void main(String[] args) {
+		// Programa que lee dos fechas de teclado y nos dice cuántos días hay entre ellas.
+		
+		LocalDate fecha1=null,fecha2=null;
+		boolean correcto=false;
+		
+		DateTimeFormatter patron = DateTimeFormatter.ofPattern("dd/LL/yy");
+		
+		Scanner sc=new Scanner (System.in);
+		
+		do {
+			System.out.println("Introduce la fecha1 en formato dd/MM/yyyy");
+			String fecha1S=sc.nextLine();
+	
+		fecha1=LocalDate.parse(fecha1S,patron);
+		correcto=true;
+	
+		}while(!correcto);
+	}
+
+}

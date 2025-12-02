@@ -1,0 +1,68 @@
+package Hoja7;
+
+import java.util.Scanner;
+
+public class Ejercicio5 {
+
+	public static void main(String[] args) {
+		/*En un cine las entradas cuestan 5 euros. Se hace el 50% de descuento los
+	martes a los mayores de 65 años, los miércoles el 20% a todos los públicos y el
+	fin de semana el 15% a los menores de 18 años. Hacer un programa que simule
+	el siguiente proceso : se pide por teclado el día de la semana , se valida que sea
+	correcto (L,M,X,J,V,S o D). Se van pidiendo las edades de la gente que llega a la
+	taquilla, si es necesario, y se muestra el precio de la entrada.
+	Utilizar un método para validar el día y otro para calcular el precio de cada entrada*/
+		
+		char dia;
+		int edad;
+		boolean diaVerdadero, seguir;
+		double precio;
+		
+		Scanner sc=new Scanner(System.in);
+		
+		do {
+			System.out.println("Dime el dia de la semana: (L,M,X,J,V,S o D)");
+			dia=sc.nextLine().charAt(0);
+			dia=Character.toUpperCase(dia); // dia pasa a mayusculas
+			diaVerdadero=EsCorrectoDia(dia);
+		}while(diaVerdadero==false);
+		System.out.println("El dia es: "+dia);
+		
+		do {
+			System.out.println("Introduce la edad: ");
+			edad=sc.nextInt();
+			if (edad <0)
+				System.out.println("Edad incorrecta.");
+			else {
+				precio=calcPrecio(dia,edad);
+				System.out.println("EL precio a pagar es: "+precio);
+			}
+			System.out.println("Quieres introducir otra edad?");
+			seguir=sc.nextBoolean();
+		}while(seguir);
+	}
+	public static boolean EsCorrectoDia (char dia) {
+		
+		if (dia== 'L' || dia=='M'|| dia=='X' || dia=='J' || dia=='V' || dia=='S' || dia== 'D')
+			return true;
+		return false;
+		
+	}
+	/**
+	 * Calcula el precio de una entrada en funcion del dia y la edad
+	 * @param dia ya esta validado
+	 * @param edad c
+	 * @return el precio que vale la entrada
+	 */
+	public static double calcPrecio(char dia, int edad) {
+		double entrada=5;
+		if (dia=='M' && edad>65)
+			entrada=entrada*0.5;
+		if (dia=='X')
+			entrada=entrada*0.8;
+		if ((dia =='S' || dia =='D') && edad<18)
+			entrada=entrada*0.85;
+		
+		return entrada;
+	}
+}

@@ -1,0 +1,3 @@
+INDEX VERSION 1.134+C:\Users\vikiy\Desktop\DAW1\PROGRAMACION\1. Elementos de un programa\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+471092261.index

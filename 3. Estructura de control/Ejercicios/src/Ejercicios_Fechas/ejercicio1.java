@@ -1,0 +1,27 @@
+package Ejercicios_Fechas;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
+
+public class ejercicio1 {
+
+	public static void main(String[] args) {
+		//Muestra el día, mes y año actual, incluido el día de la semana.
+		
+		LocalDate hoy = LocalDate.now();
+		System.out.println(hoy);
+		DateTimeFormatter patron=DateTimeFormatter.ofPattern("dd / MM / yyyy");
+		System.out.println(patron.format(hoy));
+		System.out.println("Día de la semana: "+hoy.getDayOfWeek().getDisplayName(TextStyle.FULL,Locale.getDefault()));
+		
+		/* .getDisplayName(TextStyle.FULL,Locale.getDefault()) --> sirve para que salga en español
+		 * 
+		 * getDayOfWeek --> Dia de la semana como nombre
+		 * 
+		 * DateTimeFormatter.ofPattern --> dar formato a la fecha
+		 */
+	}
+
+}

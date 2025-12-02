@@ -1,0 +1,185 @@
+package ejemplos;
+
+import java.util.Scanner;
+
+public class restaurante2022 {
+
+	public static void main(String[] args) {
+		/* PRIMER EJERCICIO (SIN CLASES) (6,25 puntos)
+			Un restaurante quiere gestionar las reservas para una cena con espectáculo mediante un programa. El
+			restaurante puede dar de cenar a 80 comensales. Por cada cliente que llama para reservar se toma nota
+			de lo siguiente:
+			• Número de personas para cenar. Controlar que sea un número positivo y que no supere las
+			plazas que queden disponibles. Si no hay plazas suficientes no se continúa con la reserva. (0,5
+			puntos)
+			• Se ofrece una lista de 3 menús para que elija entre ellos:
+			o Menú económico (25€)
+			o Menú degustación (35€)
+			o Menú estrella (50€).
+			Validar mediante una función, que el tipo seleccionado sea correcto. No continuar el proceso
+			hasta introducir correctamente el dato (0,5 puntos)
+			• Tras la cena, durante el espectáculo, habrá la posibilidad de contratar 2 copas por el precio de
+			9€ o barra libre por 30€. Pedir cuantas personas se apuntan a cada una de las dos opciones,
+			teniendo en cuenta que la suma de ambas no supere el número de personas de la reserva. (0,5
+			ptos)
+			• Calcular el precio total mediante una función calcular_precio que reciba número de comensales,
+			tipo de menú, número de personas que contratan 2 copas y personas que contratan barra libre.
+			(1 pto). Si el cliente además tiene un carnet de socio correcto, (validad que tiene longitud 4 ó 5,
+			y que empieza por letra en mayúsculas y el resto son dígitos) se le hace un 20% de descuento.
+			(0,75 puntos)
+			• Una vez recibido el precio, mostrarlo y pedir confirmación de la reserva. (0, 5 puntos)
+			• El proceso acaba si se acaban las plazas o se teclea -1 al pedir el número de personas para cenar.
+			(0,5 ptos)
+			• Al acabar el proceso mostrad el total de ganancias y reservas y el porcentaje de personas que se
+			han apuntado a la barra libre(0,75 ptos).
+			• Haced que el programa pueda repetir el proceso anterior para varias noches mientras lo desee
+			el usuario, mostrando al finalizar el programa lo que se ha recaudado la noche de menor
+			recaudación y el total de personas que no han contratado bebida en todas las noches.(1,25 pto)*/
+		
+		// NOTA IMPORTANTE!!!!
+		/*  Cosa	                        A quién se aplica
+			Menú elegido	                Todo el grupo (una única elección)
+			Número de personas	            Todo el grupo
+			Bebidas (copas / barra libre)	Cantidad de personas dentro del grupo
+			Carnet de socio	                Solo del cliente que hace la reserva (una vez por grupo)
+			Descuento del 20 %	            Al precio total del grupo, si el carnet es válido*/
+					
+		int personas, acumuladorPersonas=0,opcion=0, opcion2, numeroReservas=0;
+		boolean opcionCorrecta, reserva, socio, otraNoche=true;
+		double precioTotal=0, totalGanancias=0;
+		String carnet;
+		
+		Scanner sc=new Scanner(System.in);
+		
+		do {
+			do {
+				int opcionCopa=0, opcionBarra=0, opcionNada=0;
+				
+				System.out.println("¿Cuántas personas van a cenar?");
+				personas=sc.nextInt();
+				
+				if (personas==-1)
+					break;
+				
+				acumuladorPersonas=acumuladorPersonas+personas;
+				
+				if (personas <=0  || personas >80-acumuladorPersonas) {
+					System.out.println("ERROR. Máximo de personas 80. Vuelva a introducir el dato.");
+					continue; // Vuelve al inicio del bucle
+				}
+				
+				do {
+				System.out.println("¿Qué menú se va a elegir?");
+				System.out.println("Opción 1 - Menú económico (25€)");
+				System.out.println("Opción 2 - Menú desgustación (35€)");
+				System.out.println("Opción 3 - Menú estrella (50€)");
+				opcion=sc.nextInt();
+				opcionCorrecta=validarOpcion(opcion);
+				}while (opcionCorrecta==false);
+				
+				System.out.println("Después de la cena habrá 2 opciones ¿Cuál quiere?:");
+				
+				for (int i=1; i<=personas;i++) {
+					System.out.println("Pedido para comensal número: "+i);
+					
+					if (opcionCopa + opcionBarra > personas) {
+					    System.out.println("ERROR: El número de personas con bebida supera el total."); // Manejar el error
+					}
+					
+					System.out.println("Opción 1 - 2 Copas por el precio de 9€");
+					System.out.println("Opción 2 - Barra libre por el precio de 30€");
+					opcion2=sc.nextInt();
+		
+					if (opcion2 ==1) 
+						opcionCopa++;
+					else
+						if (opcion2 ==2) 
+							opcionBarra++;
+						else 
+							opcionNada++;
+					}
+	
+				precioTotal=calcular_precio(personas,opcion,opcionCopa,opcionBarra);
+				
+				System.out.println("¿Es socio?");
+				socio=sc.nextBoolean();
+				
+				if (socio) {
+					System.out.println("Introduzca su carnet (Una letra mayúscula y 4 números)");
+					carnet=sc.next();
+				
+					if (validarCarnet(carnet)) {
+						precioTotal=precioTotal*0.80;
+						System.out.println("Se aplicará un 20% de descuento al precio total");
+					}
+					else
+						System.out.println("Carnet no válido. No se aplica descuento.");
+				}
+						
+				System.out.println("El precio total es de "+precioTotal);
+				
+				System.out.println("Desea confirmar la reserva? (TRUE/FALSE)");
+				reserva=sc.nextBoolean();
+				
+				if (reserva) {
+					System.out.println("Reserva confirmada. Gracias");
+					numeroReservas++;
+				}
+				else
+					System.out.println("Reserva cancelada.");
+			
+				totalGanancias=totalGanancias+precioTotal;
+			}while(acumuladorPersonas <=80);
+			
+			
+			System.out.println("Total de ganancias: "+totalGanancias);
+			System.out.println("Total de reservas: "+numeroReservas);
+			
+			System.out.println("¿Quiere mostrar otra noche? (True/False)");
+			otraNoche=sc.nextBoolean();
+			
+		}while(otraNoche);
+	
+	}
+	public static boolean validarOpcion (int opcion) {
+		if (opcion == 1 || opcion == 2 || opcion == 3)
+			return true;
+		
+		return false;
+	}
+	public static double calcular_precio (int personas, int opcion, int copasP, int barraP) {
+		double precioBase,precioBebidas, total;
+		final double  copas=9, barra=30;
+		
+		switch (opcion) {
+		case 1:
+			opcion=25;
+			break;
+		case 2:
+			opcion=35;
+			break;
+		case 3:
+			opcion=50;
+			break;			
+		}
+		precioBase=personas*opcion;
+		precioBebidas=copasP*copas+barraP*barra;
+		total=precioBase+precioBebidas;
+		
+		return total;
+	}
+	
+	public static boolean validarCarnet(String carnet) {
+		if (carnet.length() < 4 || carnet.length() > 5)    // Esto quiere decir que mientras que la longitud de carnet sea menor que 4 o mayor que 5 no funcionara (tiene que tener 5)
+			return false;
+		if (Character.isUpperCase(carnet.charAt(0)) == false)  // esto quiere decir que el caracter 0 tiene que ser mayuscula sino no funcionara
+			return false;	
+		for (int i = 1; i<carnet.length();i++) { // este bucle nos esta diciendo que i vale 1 con lo cual nunca va a empezar por 0 y que tiene que ser menor que el tamaño de la cadena de caracteres, y que ira aumentandose
+			if(Character.isDigit(carnet.charAt(i))==false)  // con cada vuelta, si para por 1,2,3 y 4 y es digito entonces bien, sino sera false
+				return false;
+		}	
+		return true;  // si todo lo anterior es true devuelve true, es decir, que tenga 5 caracteres, que el primero sea una letra y sea mayuscula y que los otros 4 sean numeros y no letras
+		}
+	}
+	
+

@@ -1,0 +1,18 @@
+package Ejercicios_Fechas;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class ejercicio2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LocalDate fecha1=null, fecha2=null;
+		boolean correcto = false;
+		Scanner sc = new Scanner (System.in);
+		
+		DateTimeFormatter patron = DateTimeFormatter.ofPattern(()
+	}
+
+}

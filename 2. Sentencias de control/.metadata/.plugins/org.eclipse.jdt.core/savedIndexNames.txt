@@ -1,0 +1,7 @@
+INDEX VERSION 1.134+/home/inf1/Desktop/DAW1/PROGRAMACION/2. Sentencias de control/.metadata/.plugins/org.eclipse.jdt.core
+1865797976.index
+1329107133.index
+3455741661.index
+2567467902.index
+948320869.index
+1937765786.index

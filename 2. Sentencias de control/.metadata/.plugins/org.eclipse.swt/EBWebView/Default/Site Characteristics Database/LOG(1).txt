@@ -1,0 +1,3 @@
+2025/10/20-19:15:39.892 4318 Reusing MANIFEST G:\Mi unidad\DAW1\PROGRAMACION\2. Sentencias de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
+2025/10/20-19:15:39.914 4318 Recovering log #3
+2025/10/20-19:15:40.954 4318 Reusing old log G:\Mi unidad\DAW1\PROGRAMACION\2. Sentencias de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/000003.log 

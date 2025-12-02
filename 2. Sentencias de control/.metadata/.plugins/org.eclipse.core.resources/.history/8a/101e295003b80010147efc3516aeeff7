@@ -1,0 +1,111 @@
+package ejemplos;
+
+import java.util.Scanner;
+
+public class restaurante2022 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int personas, acumuladorPersonas=0,opcion=0, opcion2, opcionCopa=0, opcionBarra=0, opcionNada=0, opcion2Total;
+		boolean opcionCorrecta, reserva;
+		double precioTotal;
+		
+		Scanner sc=new Scanner(System.in);
+		
+		do {
+			System.out.println("¿Cuántas personas van a cenar?");
+			personas=sc.nextInt();
+			acumuladorPersonas=acumuladorPersonas+personas;
+			if (personas==-1)
+				break;
+			if (personas <=0  || personas >80-acumuladorPersonas)
+				System.out.println("ERROR. Máximo de personas 80. Vuelva a introducir el dato.");
+			
+			do {
+			System.out.println("¿Qué menú se va a elegir?");
+			System.out.println("Opción 1 - Menú económico (25€)");
+			System.out.println("Opción 2 - Menú desgustación (35€)");
+			System.out.println("Opción 3 - Menú estrella (50€)");
+			opcion=sc.nextInt();
+			opcionCorrecta=validarOpcion(opcion);
+			}while (opcionCorrecta==false);
+			
+			System.out.println("Después de la cena habrá 2 opciones ¿Cuál quiere?:");
+			
+			for (int i=1; i<=personas;i++) {
+				System.out.println("Pedido para comensal número: "+i);
+				
+				System.out.println("Opción 1 - 2 Copas por el precio de 9€");
+				System.out.println("Opción 2 - Barra libre por el precio de 30€");
+				opcion2=sc.nextInt();
+	
+				if (opcion2 ==1) 
+					opcionCopa++;
+				else
+					if (opcion2 ==2) 
+						opcionBarra++;
+					else 
+						opcionNada++;
+				}
+			System.out.println("Se han apuntado a Copas: "+opcionCopa+"personas");
+			System.out.println("Se han apuntado a Copas: "+opcionBarra+"personas");
+
+			precioTotal=calcular_precio(personas,opcion,opcionCopa,opcionBarra);
+			
+			System.out.println("El precio total es de "+precioTotal);
+			
+			
+			System.out.println("Desea confirmar la reserva? (TRUE/FALSE)");
+			reserva=sc.nextBoolean();
+			
+			if (reserva)
+				System.out.println("Reserva confirmada. Gracias");
+			else
+				System.out.println("Reserva cancelada.");
+		
+		}while(acumuladorPersonas <=80);
+		
+	}
+	
+	public static boolean validarOpcion (int opcion) {
+		if (opcion == 1 || opcion == 2 || opcion == 3)
+			return true;
+		
+		return false;
+	}
+	public static double calcular_precio (int personas, int opcion, int copasP, int barraP) {
+		double precioBase,precioBebidas, total;
+		final double  copas=9, barra=30;
+		
+		switch (opcion) {
+		case 1:
+			opcion=25;
+			break;
+		case 2:
+			opcion=35;
+			break;
+		case 3:
+			opcion=50;
+			break;			
+		}
+		precioBase=personas*opcion;
+		precioBebidas=copasP*copas+barraP*barra;
+		total=precioBase+precioBebidas;
+		
+		return total;
+	}
+	
+	public static boolean validarCarnet(String carnet) {
+		if (carnet.length() < 4 || carnet.length() > 5) 
+			return false;
+		if (Character.isUpperCase(carnet.charAt(0)) == false) 
+			return false;	
+		for (int i = 1; i<carnet.length();i++) {
+			if(Character.isDigit(carnet.charAt(i))==false)
+				return false;
+		}	
+		return true;
+		}
+	}
+	
+}

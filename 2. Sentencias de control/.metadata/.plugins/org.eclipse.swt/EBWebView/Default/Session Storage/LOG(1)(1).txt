@@ -1,0 +1,3 @@
+2025/10/19-12:11:04.704 2e0c Reusing MANIFEST G:\Mi unidad\DAW1\PROGRAMACION\2. Sentencias de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage/MANIFEST-000001
+2025/10/19-12:11:04.709 2e0c Recovering log #3
+2025/10/19-12:11:05.141 2e0c Reusing old log G:\Mi unidad\DAW1\PROGRAMACION\2. Sentencias de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Session Storage/000003.log 

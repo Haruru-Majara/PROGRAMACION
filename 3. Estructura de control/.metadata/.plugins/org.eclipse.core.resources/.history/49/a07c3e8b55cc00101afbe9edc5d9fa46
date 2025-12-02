@@ -1,0 +1,10 @@
+package Ejercicios_Excepciones;
+
+public class ejercicio_cine {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,3 @@
+2025/11/04-19:10:37.250 40a0 Reusing MANIFEST G:\Mi unidad\DAW1\PROGRAMACION\3. Estructura de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
+2025/11/04-19:10:37.267 40a0 Recovering log #3
+2025/11/04-19:10:38.001 40a0 Reusing old log G:\Mi unidad\DAW1\PROGRAMACION\3. Estructura de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata/000003.log 

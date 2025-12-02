@@ -1,0 +1,20 @@
+package ejemplocasting;
+
+public class ejemplo1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a=7;
+		long b=8;
+		double c=23.5;
+		
+		b=a;
+		a=(int)b;
+		
+		c=a;
+		a=(int)c; //recortar informacion
+		
+		System.out.println(c);
+	}
+
+}

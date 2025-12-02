@@ -1,0 +1,3 @@
+2025/11/04-19:10:36.623 c8c Reusing MANIFEST G:\Mi unidad\DAW1\PROGRAMACION\3. Estructura de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2025/11/04-19:10:36.633 c8c Recovering log #3
+2025/11/04-19:10:37.216 c8c Reusing old log G:\Mi unidad\DAW1\PROGRAMACION\3. Estructura de control\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/000003.log 

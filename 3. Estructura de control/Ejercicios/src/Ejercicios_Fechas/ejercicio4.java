@@ -1,0 +1,56 @@
+package Ejercicios_Fechas;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
+
+public class ejercicio4 {
+
+	public static void main(String[] args) {
+		// Programa que lee dos fechas de teclado y nos dice cuántos días hay entre ellas.
+		
+		LocalDate fecha1=null,fecha2=null;
+		boolean correcto=false;
+		
+		DateTimeFormatter patron = DateTimeFormatter.ofPattern("dd/LL/yyyy");
+		
+		Scanner sc=new Scanner (System.in);
+		
+		do {
+			System.out.println("Introduce fecha en formato dd/MM/yyyy");
+			String fecha1S=sc.nextLine();
+	
+		try {
+			fecha1=LocalDate.parse(fecha1S,patron);
+			correcto=true;
+		} catch (DateTimeParseException e) {
+			System.out.println("No es formato de fecha");
+		}
+	
+		}while(!correcto);
+		
+		correcto=false;
+		
+		do {
+			System.out.println("Introduce la fecha1 en formato dd/MM/yyyy");
+			String fecha2S=sc.nextLine();
+	
+		try {
+			fecha2=LocalDate.parse(fecha2S,patron);
+			correcto=true;
+		} catch (DateTimeParseException e) {
+			System.out.println("Formato de fecha no valido");
+		}
+	
+		}while(!correcto);
+		
+		long diferenciaDias;
+		
+		diferenciaDias=Math.abs(ChronoUnit.DAYS.between(fecha1,fecha2));
+		
+		System.out.println("La diferencia de dias entre: "+patron.format(fecha1)+" y "+patron.format(fecha2)+" es de: "+diferenciaDias+" días");
+	}
+
+}

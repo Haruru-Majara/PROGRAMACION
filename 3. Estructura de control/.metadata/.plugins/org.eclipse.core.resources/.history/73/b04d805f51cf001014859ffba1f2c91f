@@ -1,0 +1,16 @@
+package Excepciones_Paquetes;
+
+public class ejercicio3 {
+
+	public static void main(String[] args) {
+		/*Haz un juego interactivo donde el ordenador genera una fecha secreta y el usuario
+		trata de averiguarla. El usuario va haciendo preguntas en las que indica una fecha y el
+		ordenador responde si la fecha secreta es mayor o menor que la introducida. El juego
+		termina cuando se averigua la fecha. Los casos en los que el usuario no introduzca una
+		fecha con un formato válido deben manejarse con excepciones. */
+
+		int dia, mes, año;
+		
+	}
+
+}
