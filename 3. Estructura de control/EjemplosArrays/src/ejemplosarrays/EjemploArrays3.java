@@ -5,7 +5,10 @@ import java.util.Scanner;
 public class EjemploArrays3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		/*Escribe un programa en Java que pida al usuario 4 cadenas de texto y las guarde en un array muestre las cadenas introducidas 
+		 * copie el array a otra variable cambie la tercera cadena por "mañana" y vuelva a mostrar el contenido del array original 
+		 * para comprobar los cambios*/
+		
 		String cadenas[]= new String[4];
 		String otra[];
 		

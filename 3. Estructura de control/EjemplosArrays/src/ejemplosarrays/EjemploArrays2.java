@@ -5,7 +5,10 @@ import java.util.Scanner;
 public class EjemploArrays2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		/*Leed 5 números en un array, sólo dejad introducir cada número si es positivo, si no
+		lo es volved a pedirlo hasta que lo sea. Después recorred el array y mostrad sus
+		cuadrados.*/
+		
 		int numeros[]= new int[5];
 		
 		Scanner sc=new Scanner(System.in);
