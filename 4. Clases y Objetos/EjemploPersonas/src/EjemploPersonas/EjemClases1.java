@@ -41,6 +41,11 @@ public class EjemClases1 {
     System.out.println(miPersona1.toString());
     System.out.println(miPersona2.toString());
     System.out.println(miPersona3.toString());
+    //ABAJO: SI FUERA PUBLICO
+    //System.out.println("Número total de personas: "+Persona.numeroPersonas); 
+    System.out.println("Número total de personas: "+Persona.getNumeroPersonas());
+    System.out.println("Se han celebrado: "+Persona.getNumBodas()+" bodas");
+    //SI PIDE ALGO GLOBAL SERA UN METODO ESTATICO
     }
     
     
