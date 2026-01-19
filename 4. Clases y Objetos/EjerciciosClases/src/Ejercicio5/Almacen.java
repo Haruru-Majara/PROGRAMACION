@@ -7,6 +7,7 @@ public class Almacen {
 	private double precioKilo;
 	private double ventaKilo;
 	
+	private static double beneficioTotal=0;
 	
 	public Almacen(String nombre, String procedencia, double kilos, double precioKilo, double ventaKilo) {
 		this.nombre = nombre;
@@ -48,7 +49,40 @@ public class Almacen {
 				+ precioKilo + ", ventaKilo=" + ventaKilo + "]";
 	}
 	
-	public infoCargamento ()
+	public boolean rebajar (double cantidad) {
+		if (ventaKilo - cantidad < precioKilo) 
+			return false;
+		ventaKilo = cantidad;
+		return true;
+	}
+	
+	public double vender (double kilosVender) {
+		if (kilosVender <= kilos) {
+			kilos = kilos - kilosVender;
+			
+			double importeVenta = kilosVender * ventaKilo;
+			double coste = kilosVender * precioKilo;
+			
+			beneficioTotal = beneficioTotal + (importeVenta - coste);
+			
+		
+			return importeVenta;
+		}
+		else
+			System.out.println("No hay suficientes kilos para vender");
+		return -1;
+	}
+
+
+	public static double getBeneficioTotal() {
+		return beneficioTotal;
+	}
+	
+	public static boolean mismaProcedencia(Almacen c1, Almacen c2) {
+		if (c1.procedencia.equalsIgnoreCase(c2.procedencia))
+			return true;
+		return false;
+	}
 }
 
 
