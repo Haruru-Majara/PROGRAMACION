@@ -48,7 +48,7 @@ public class MainGaraje {
 					System.out.println("El alquiler de este garaje es: "+garajes[pos].getPrecioAlquiler());
 				break;
 			case 3:
-				
+				for ()
 				break;
 			case 4:
 				System.out.println("Introduce número del garaje del que quieres visualizar: ");

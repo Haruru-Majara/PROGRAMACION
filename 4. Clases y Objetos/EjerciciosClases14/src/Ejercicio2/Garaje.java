@@ -76,6 +76,9 @@ public class Garaje {
 				+ ", precioAlquiler=" + precioAlquiler + ", alquilado=" + alquilado + "]";
 	}
 	
-	public double aumentarPorcentaje (p)
+	public double aumentarPorcentaje (double porcentaje) {
+		precioAlquiler=precioAlquiler*porcentaje/100;
+		return precioAlquiler;
+	}
 	
 }
