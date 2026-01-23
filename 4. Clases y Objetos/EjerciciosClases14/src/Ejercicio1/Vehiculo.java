@@ -78,6 +78,16 @@ public class Vehiculo {
 		return "Vehiculo [matricula=" + matricula + ", modelo=" + modelo + ", marca=" + marca + ", año=" + año
 				+ ", categoria=" + categoria + ", alquilado=" + alquilado + ", ganancias=" + ganancias + "]";
 	}
+
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+
+	public static int getTotalAlquilados() {
+		return totalAlquilados;
+	}
 	
 	
 }
