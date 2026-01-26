@@ -29,6 +29,7 @@ public class Garaje {
 				if(metrosCuadrados > 4 )
 					precioAlquiler=precioAlquiler+1.5;
 				else
+					if (metrosCuadrados < 3)
 					precioAlquiler=precioAlquiler+1;
 			}
 			else
@@ -77,7 +78,7 @@ public class Garaje {
 	}
 	
 	public double aumentarPorcentaje (double porcentaje) {
-		precioAlquiler=precioAlquiler*porcentaje/100;
+		precioAlquiler=precioAlquiler+(precioAlquiler*porcentaje/100);
 		return precioAlquiler;
 	}
 	

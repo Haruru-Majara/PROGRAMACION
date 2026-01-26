@@ -9,8 +9,6 @@ public class MainGaraje {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int numero, planta, pos,opcion,porcentaje;
-		double metros, pAlquiler;
-		boolean correcto;
 		
 		Garaje garajes [] = new Garaje[5];
 		
@@ -23,8 +21,10 @@ public class MainGaraje {
 		Scanner sc=new Scanner(System.in);
 		
 		do {
-			System.out.println("1.Alquilar garaje\n.2.Mostrar alquiler garaje\n.3.Mostrar info garajes libres\n.4.Subir precio garaje\n.5.Mostrar beneficios totales\n.6.Salir");
+			System.out.println("---------------------------------------");
+			System.out.println("1.Alquilar garaje\n2.Mostrar alquiler garaje\n3.Mostrar info garajes libres\n4.Subir precio garaje\n5.Mostrar beneficios totales\n6.Salir");
 			opcion=sc.nextInt();
+			System.out.println("---------------------------------------");
 			switch(opcion) {
 			case 1:
 				System.out.println("Introduce número del garaje que quieres alquilar: ");
@@ -34,9 +34,11 @@ public class MainGaraje {
 					System.out.println("Garaje no encontrado, lo siento");
 				else
 					if (garajes[pos].isAlquilado())
-						System.out.println("Genial! Has alquilado el garaje");
-					else
-						System.out.println("No se ha podido, este garaje ya estaba alquilado.");		
+						System.out.println("No se ha podido, este garaje ya estaba alquilado.");
+					else {
+						garajes[pos].alquilarGaraje();
+						System.out.println("Genial! Has alquilado el garaje");	
+					}
 				break;
 			case 2:
 				System.out.println("Introduce número del garaje del que quieres visualizar: ");
@@ -48,21 +50,28 @@ public class MainGaraje {
 					System.out.println("El alquiler de este garaje es: "+garajes[pos].getPrecioAlquiler());
 				break;
 			case 3:
-				for ()
+				for(int i=0;i<garajes.length;i++) {
+					if(!garajes[i].isAlquilado())
+						System.out.println("La información del garaje: "+garajes[i]);
+				}
 				break;
 			case 4:
 				System.out.println("Introduce número del garaje del que quieres visualizar: ");
 				numero=sc.nextInt();
+				pos=buscarGaraje(garajes,numero);
+				System.out.println("El alquiler de este garaje es: "+garajes[pos].getPrecioAlquiler());
 				System.out.println("Introduce el porcentaje que quieres aumentar: ");
 				porcentaje=sc.nextInt();
-				pos=buscarGaraje(garajes,numero);
 				if (pos==-1)
 					System.out.println("No existe el garaje");
 				else {
 					if (garajes[pos].isAlquilado())
 						System.out.println("Esta alquilado no puedo subir precio");
-					else
+					else {
 						garajes[pos].aumentarPorcentaje(porcentaje);
+						System.out.println("Subida de precio realizada con éxito.");
+						System.out.println("El alquiler de este garaje ahora es: "+garajes[pos].getPrecioAlquiler());
+					}
 				}
 				break;
 			case 5:
