@@ -38,17 +38,20 @@ public class Cargamento {
 		return true;
 	}
 	
-	public double vender (double kilosVender) {
+	public double vender (int kilosVender) {
 		if (kilosVender <= kilos) {
 			kilos = kilos - kilosVender;
 			
-			double importeVenta = this.precioVenta * this.precioVenta;
-			double coste = this.precioVenta * this.precioKilos;
+			double importeVenta = kilosVender * this.precioVenta;
+			double coste = kilosVender * this.precioKilos;
 			
 			beneficioTotal = beneficioTotal + (importeVenta - coste);
 			
-		
 			return importeVenta;
+		}
+		else {
+			System.out.println("No hay suficientes kilos para vender");
+			return -1;
 		}
 
 }

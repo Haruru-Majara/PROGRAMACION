@@ -9,6 +9,7 @@ public class MainCargamento {
 		int opcion,kilos,contador=0;
 		String nombre,procedencia;
 		double pKilo, pVenta,rebaja;
+		final int NCAR=10;
 		
 		Scanner sc= new Scanner(System.in);
 		
@@ -40,12 +41,12 @@ public class MainCargamento {
 					System.out.println("Precio venta: ");
 					pVenta=sc.nextDouble();
 				
-					cargamentos[contador]=new Cargamento
+					cargamentos[contador]=new Cargamento (nombre ,procedencia, kilos, pKilo, pVenta);
 					contador++;
 				}
 				break;
 			case 2:
-				for (int i =0;i<cargamentos.length;i++)
+				for (int i =0;i< ultimoCargamento;i++)
 					System.out.println("Información de cargamentos: "+cargamentos[i]);
 				break;
 			case 3:
@@ -57,13 +58,22 @@ public class MainCargamento {
 				rebaja=sc.nextDouble();
 				
 				break;
-			case 4:
+			case 4: 
 				
 				break;
 			case 5:
 				System.out.println("El benefio de la empresa ha sido: "+Cargamento.getBeneficioTotal());
 				break;
-			case 6:
+			case 6: //Borrar el primer cargamentos vacios
+				int i;
+				for (i=0;i<ultimoCargamento;i++) {
+					if (cargamentos[i].getKilos()==0) {
+						
+						break;
+					}
+				}
+				if (i==ultimoCargamento)
+					System.out.println("No hay ningun cargamento vacío");
 				break;
 			case 7:
 				System.out.println("Fin del programa.");

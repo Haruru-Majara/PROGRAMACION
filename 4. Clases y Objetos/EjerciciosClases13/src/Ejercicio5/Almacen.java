@@ -56,7 +56,7 @@ public class Almacen {
 		return true;
 	}
 	
-	public double vender (double kilosVender) {
+	public double vender (int kilosVender) {
 		if (kilosVender <= kilos) {
 			kilos = kilos - kilosVender;
 			
