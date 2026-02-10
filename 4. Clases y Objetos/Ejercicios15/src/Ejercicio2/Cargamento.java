@@ -23,7 +23,7 @@ public class Cargamento {
 				+ compraKilo + ", ventaKilo=" + ventaKilo + "]";
 	}
 	
-	public static boolean mismoCargamento(Cargamento c1,Cargamento c2) {
+	public static boolean mismoCargamento(Cargamento c1,Cargamento c2) { //Aqui es static porque quiero usarlo para varios
 		if (c1.procedencia.equalsIgnoreCase(c2.procedencia))
 			return true;
 		return false;
@@ -39,6 +39,15 @@ public class Cargamento {
 		return procedencia;
 	}
 	
+	public boolean rebajar(double rebaja) {
+		double precioFinal;
+		if (this.ventaKilo<this.compraKilo)
+			return false;
+		if (this.ventaKilo<rebaja)
+			return false;
+		precioFinal=this.ventaKilo-rebaja;
+		return true;
+	}
 	
 	
 }

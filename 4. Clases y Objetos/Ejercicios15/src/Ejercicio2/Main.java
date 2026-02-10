@@ -16,6 +16,8 @@ public class Main {
 		int kilos, cont = 0;
 		double compraKilo;
 		double ventaKilo;
+		double precioRebaja;
+		int opcionCargamento;
 		ArrayList<Cargamento> cargamentos = new ArrayList<Cargamento>();
 
 		Scanner sc = new Scanner(System.in);
@@ -41,16 +43,32 @@ public class Main {
 		System.out.println("Vamos a mostrar los cargamentos: ");
 		for (int i = 0; i < cargamentos.size(); i++) {
 			System.out.println(cargamentos.get(i).toString());
+			/*System.out.println(cargamentos);*/
 		}
+		
+		System.out.println("¿Tienen la misma procedencia el cargamento 0 y el cargamento 1? //Con 3 casos diferentes");
+		/**
+		 * Los 3 metodos de abajo sirven para lo mismo,
+		 * En el primero le pasamos el metodo con los 2 objetos
+		 * En el segundo le pasamos el metodo desde un objeto al otro objeto
+		 * En eel tercero simplemente cogemos con el metodo get ambas procedencias y comparamos.
+		 * */
 		
 		if (Cargamento.mismoCargamento(cargamentos.get(0),cargamentos.get(1)))
 			System.out.println("Tienen la misma procedencia");
-		/*System.out.println(cargamentos);*/
 		
 		if (cargamentos.get(0).mismoCargamento(cargamentos.get(1)))
 			System.out.println("Tienen la misma procedencia");
+		
 		if (cargamentos.get(0).getProcedencia().equalsIgnoreCase(cargamentos.get(1).getProcedencia()))
 			System.out.println("Tienen la misma procedencia");
+		
+		System.out.println("Introduce cantidad a rebajar: ");
+		precioRebaja=sc.nextDouble();
+		if (cargamentos.get(2).rebajar(precioRebaja))
+			System.out.println("Se ha podido hacer la rebaja");
+		
+		
 	}
 
 }
