@@ -9,7 +9,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		Coche coches[];
 		int cont,opc,pos;
-		String mat;
+		String mat, codigo;
 		Scanner sc=new Scanner(System.in);
 		do {
 			System.out.println("Introduce número de coches (2-10");
@@ -34,7 +34,7 @@ public class Main {
 			System.out.println("1.Reservar un vehículo.");
 			System.out.println("2.Alquilar un vehículo reservado.");
 			System.out.println("3.Acabar el trayecto con el vehículo.");
-			System.out.println("4.Poner a libres a todos los vehículos.");
+			System.out.println("4.Poner a libres todos los vehículos.");
 			System.out.println("5.Salir");
 			opc=sc.nextInt();
 			
@@ -56,15 +56,54 @@ public class Main {
 					}
 				break;
 			case 2:
+				System.out.println("Introduce la matrícula: ");
+				mat=sc.nextLine();
+				pos=buscar(coches,mat);
+				if (pos==-1)
+					System.out.println("No existe ningún coche con esa matrícula");
+				else {
+					System.out.println("Anota el codigo del vehiculo: ");
+					codigo=sc.nextLine();
+					if (coches[pos].alquilar(codigo))
+						System.out.println("Coche alquilado con éxito");
+					else
+						System.out.println("No se ha podido alquilar");
+				}
 				break;
 			case 3:
+				System.out.println("Introduce la matrícula: ");
+				mat=sc.nextLine();
+				pos=buscar(coches,mat);
+				if (pos==-1) 
+					System.out.println("El coche no existe");
+				else {
+					double imp=coches[pos].estacionar();
+					if (imp==0)
+						System.out.println("No se ha podido estacionar");
+					else
+						System.out.println("Tienes que pagar: "+imp+" euros.");
+				}
 				break;
 			case 4:
+				liberarCoches(coches);
 				break;
-			case 5:
-				break;
+			default:
+				System.out.println("Esta opcion no existe, elige otra.");
 			}
 		}while(opc!=5);
+		
+		System.out.println("Actualmente: "+Coche.getAlquilados() + "alquilados, " + Coche.getReservados() + " reservados");
 	}
-
+	public static int buscar(Coche coches[],String mat) {
+		for (int i=0;i<coches.length;i++) {
+			if (coches[i].getMatricula().equalsIgnoreCase(mat))
+				return i;
+		}
+		return -1;
+	}
+	public static void liberarCoches(Coche coches[]) {
+		for (int i=0;i<coches.length;i++) {
+			coches[i].liberar();
+		}
+	}
 }

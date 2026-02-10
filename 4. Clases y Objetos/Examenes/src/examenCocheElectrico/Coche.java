@@ -1,6 +1,7 @@
 package examenCocheElectrico;
 
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 
 public class Coche {
@@ -9,6 +10,8 @@ public class Coche {
 	private double ganancias;
 	private int estado;
 	private LocalTime horaReserva;
+	private static final double precioSegundo=0.8;
+	private static int alquilados, reservados;
 	
 	public Coche(String matricula) {
 		this.matricula = matricula;
@@ -35,6 +38,55 @@ public class Coche {
 		estado=1;
 		codigo=matricula.substring(4,7).toLowerCase()+(r.nextInt(10)+1);
 		horaReserva=LocalTime.now();
+		reservados++;
 		return codigo;
+	}
+	
+	public boolean alquilar(String codigo) {
+		if (estado!=1)
+			return false;
+		if (!codigo.equals(this.codigo)) {
+			estado=0;
+			reservados--;
+			this.codigo=null;
+			horaReserva=null;
+			return false;
+		}
+		
+		this.codigo=null;
+		horaReserva=null;
+		estado=2;
+		reservados--;
+		alquilados++;
+		return true;
+	}
+	public double estacionar() {
+		double importe;
+		if (estado!=2)
+			return 0;
+		Random r=new Random();
+		int n=r.nextInt(191)+10;
+		importe=n*precioSegundo;
+		ganancias+=importe;
+		estado=0;
+		alquilados--;
+		return importe;
+	}
+
+	public static int getAlquilados() {
+		return alquilados;
+	}
+
+	public static int getReservados() {
+		return reservados;
+	}
+	public void liberar() {
+		if (estado!=1)
+			return;
+		long seg =ChronoUnit.SECONDS.between(horaReserva, LocalTime.now());
+		if (seg>20) {
+			estado=0;
+			reservados--;
+		}
 	}
 }

@@ -1,0 +1,56 @@
+package Ejercicio2;
+
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
+
+import Ejercicio1.Alumno;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String nombre;
+		String procedencia;
+		int kilos, cont = 0;
+		double compraKilo;
+		double ventaKilo;
+		ArrayList<Cargamento> cargamentos = new ArrayList<Cargamento>();
+
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+
+		do {
+			System.out.println("Dar de alta un cargamento: ");
+			System.out.println("Introduce nombre de cargamento: ");
+			nombre = sc.nextLine();
+			System.out.println("Introduce procedencia de cargamento: ");
+			procedencia = sc.nextLine();
+			System.out.println("Introduce kilos del cargamento: ");
+			kilos = sc.nextInt();
+			System.out.println("Introduce precio al que compraste el kilo: ");
+			compraKilo = sc.nextDouble();
+			System.out.println("Introduce el precio por el que se va a vender: ");
+			ventaKilo = sc.nextDouble();
+			cargamentos.add(new Cargamento(nombre, procedencia, kilos, compraKilo, ventaKilo));
+			sc.nextLine();
+			cont++;
+		} while (cont < 3);
+
+		System.out.println("Vamos a mostrar los cargamentos: ");
+		for (int i = 0; i < cargamentos.size(); i++) {
+			System.out.println(cargamentos.get(i).toString());
+		}
+		
+		if (Cargamento.mismoCargamento(cargamentos.get(0),cargamentos.get(1)))
+			System.out.println("Tienen la misma procedencia");
+		/*System.out.println(cargamentos);*/
+		
+		if (cargamentos.get(0).mismoCargamento(cargamentos.get(1)))
+			System.out.println("Tienen la misma procedencia");
+		if (cargamentos.get(0).getProcedencia().equalsIgnoreCase(cargamentos.get(1).getProcedencia()))
+			System.out.println("Tienen la misma procedencia");
+	}
+
+}
