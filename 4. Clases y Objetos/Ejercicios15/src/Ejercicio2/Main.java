@@ -68,7 +68,14 @@ public class Main {
 		if (cargamentos.get(2).rebajar(precioRebaja))
 			System.out.println("Se ha podido hacer la rebaja");
 		
-		
+		System.out.println("Introduce la cantidad de kilos a comprar: ");
+		kilos=sc.nextInt();
+		double importe=cargamentos.get(2).vender(kilos);
+		if (importe==0)
+			System.out.println("No ha podido vender exitosamente");
+		else
+			System.out.println("El importe es: "+importe);
+		System.out.println(Cargamento.getBeneficioTotal());
 	}
 
 }

@@ -49,5 +49,23 @@ public class Cargamento {
 		return true;
 	}
 	
+	public double vender(int kilosVender) {
+		double importe;
+		if (kilosVender>this.kilos)
+			return 0;
+		importe=kilosVender*this.ventaKilo;
+		this.kilos-=kilosVender;
+		beneficioTotal=beneficioTotal+importe;
+		return importe;
+	}
+
+	public int getKilos() {
+		return kilos;
+	}
+
+	public static double getBeneficioTotal() {
+		return beneficioTotal;
+	}
+	
 	
 }
