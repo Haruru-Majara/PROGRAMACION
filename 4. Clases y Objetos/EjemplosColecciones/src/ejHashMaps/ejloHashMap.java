@@ -6,30 +6,31 @@ public class ejloHashMap {
     public static void main(String[] args) {
         // Crear un HashMap para almacenar nombres y edades
         HashMap<String, Integer> edades = new HashMap<>();
-
+        //Necesita los tipos de clase que usa
+        
         // Insertar pares clave-valor
         edades.put("Juan", 30);
-        edades.put("María", 25);
+        edades.put("Marta", 25);
         edades.put("Pedro", 40);
 
         // Acceder a un valor asociado a una clave
-        System.out.println("La edad de María es: " + edades.get("María"));
+        System.out.println("La edad de Marta es: " + edades.get("Marta"));
 
         // Comprobar si una clave existe
         if (edades.containsKey("Pedro")) {
-            System.out.println("Pedro está en el HashMap");
+            System.out.println("Pedro estÃ¡ en el HashMap");
         }
 
-        // Iterar sobre el conjunto de claves
+        // Iterar sobre el conjunto de claves **recorrete el conjunto de cosas de mi hasmap**
         for (String nombre : edades.keySet()) {
-            System.out.println(nombre + " tiene " + edades.get(nombre) + " años.");
+            System.out.println(nombre + " tiene " + edades.get(nombre) + " aÃ±os.");
         }
 
         // Eliminar un elemento
         edades.remove("Juan");
 
-        // Imprimir el tamaño actual del HashMap
-        System.out.println("Número de elementos: " + edades.size());
+        // Imprimir el tamaÃ±o actual del HashMap
+        System.out.println("NÃºmero de elementos: " + edades.size());
     }
 }
 

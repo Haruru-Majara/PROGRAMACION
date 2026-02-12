@@ -8,13 +8,17 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int opc,entradas;
+		int opc,entradas,entradasTotales;
 		String nombre;
 		
 		LinkedList <Usuario> usuarios=new LinkedList<Usuario>();
 		
 		Random r=new Random();
 		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("¿Cuántas entradas hay en total?");
+		entradasTotales=sc.nextInt();
+		Usuario.setEntradasDisp(entradasTotales);
 		
 		do {
 			System.out.println("                ");
@@ -40,30 +44,29 @@ public class Main {
 				if (us.comprar()) {
 					System.out.println("Se ha podido realizar la compra de las entradas.");
 					usuarios.removeFirst();
-					
 				}
 				*/
 				if (usuarios.get(0).comprar()) {
 					System.out.println("Siguiente en la cola: "+usuarios.get(0).toString());
 					System.out.println("Se ha podido realizar la compra de las entradas.");
 					usuarios.removeFirst();
-					System.out.println("Número de entradas restantes: "+Usuario.getEntradasDisp());
+					
 					if (Usuario.getEntradasDisp()==0) {
 						usuarios.clear();
 					    opc=4;
 					}
 				}
-				else
+				else {
 					System.out.println("Siguiente en la cola: "+usuarios.get(0).toString());
 					System.out.println("No se ha podido realizar la compra de las entradas");
-					System.out.println("Número de entradas restantes: "+Usuario.getEntradasDisp());
+					
+				}
 				
 				break;
 			case 3:
-				int usuRandom= new Random().nextInt(usuarios.size());
-				usuarios.remove(usuRandom);
+				int usuRandom= r.nextInt(usuarios.size());
 				Usuario eliminado=usuarios.remove(usuRandom);
-				System.out.println("El usuario: "+eliminado+" ha abandonado la cola";
+				System.out.println("El usuario: "+eliminado+" ha abandonado la cola");
 				break;
 			case 4:
 				System.out.println("Fin del programa.");
@@ -71,7 +74,7 @@ public class Main {
 			default:
 				System.out.println("No existe esta opcion, selecciona otra.");
 			}
-			
+			System.out.println("Número de entradas restantes: "+Usuario.getEntradasDisp());
 		}while(opc!=4);
 	}
 

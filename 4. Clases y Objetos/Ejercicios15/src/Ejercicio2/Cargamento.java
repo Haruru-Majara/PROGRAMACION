@@ -1,5 +1,7 @@
 package Ejercicio2;
 
+import java.util.Objects;
+
 public class Cargamento {
 	private String nombre;
 	private String procedencia;
@@ -65,6 +67,31 @@ public class Cargamento {
 
 	public static double getBeneficioTotal() {
 		return beneficioTotal;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nombre, procedencia);
+	}
+
+	/**
+	 * Este constructor se usa para el indexof, ya que solo le pasa lo que necesita
+	 * */
+	public Cargamento(String nombre, String procedencia) {
+		this.nombre = nombre;
+		this.procedencia = procedencia;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cargamento other = (Cargamento) obj;
+		return Objects.equals(nombre, other.nombre) && Objects.equals(procedencia, other.procedencia);
 	}
 	
 	

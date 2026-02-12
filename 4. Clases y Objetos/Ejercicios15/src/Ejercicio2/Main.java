@@ -51,7 +51,7 @@ public class Main {
 		 * Los 3 metodos de abajo sirven para lo mismo,
 		 * En el primero le pasamos el metodo con los 2 objetos
 		 * En el segundo le pasamos el metodo desde un objeto al otro objeto
-		 * En eel tercero simplemente cogemos con el metodo get ambas procedencias y comparamos.
+		 * En el tercero simplemente cogemos con el metodo get ambas procedencias y comparamos.
 		 * */
 		
 		if (Cargamento.mismoCargamento(cargamentos.get(0),cargamentos.get(1)))

@@ -4,7 +4,7 @@ public class Usuario {
 	private String nombre;
 	private int nEntradas;
 	
-	private static int entradasDisp=20;
+	private static int entradasDisp;
 	
 	public Usuario(String nombre, int nEntradas) {
 		this.nombre = nombre;
@@ -20,6 +20,10 @@ public class Usuario {
 
 	public static int getEntradasDisp() {
 		return entradasDisp;
+	}
+
+	public static void setEntradasDisp(int entradasDisp) {
+		Usuario.entradasDisp = entradasDisp;
 	}
 
 	@Override
