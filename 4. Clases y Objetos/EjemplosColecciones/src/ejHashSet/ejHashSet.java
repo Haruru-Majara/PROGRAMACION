@@ -18,6 +18,12 @@ public class ejHashSet {
     for (Integer i:numbers)
     	System.out.println(i);
     
+    if (numbers.contains(8))
+    	System.out.println("El número está en el conjunto");
+    else
+    	System.out.println("El número no está");
+    
+    /*
     // De otra manera
     System.out.println("Usando un iterator:");
     Iterator<Integer> iterator = numbers.iterator();
@@ -25,6 +31,7 @@ public class ejHashSet {
         Integer nombre = iterator.next();
         System.out.println(nombre);
     }
+    */
     
   }
 }

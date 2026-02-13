@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class ejloHashMap {
     public static void main(String[] args) {
+    	//Los HashMap son super buenos para busquedas
         // Crear un HashMap para almacenar nombres y edades
         HashMap<String, Integer> edades = new HashMap<>();
         //Necesita los tipos de clase que usa
@@ -14,8 +15,17 @@ public class ejloHashMap {
         edades.put("Pedro", 40);
 
         // Acceder a un valor asociado a una clave
-        System.out.println("La edad de Marta es: " + edades.get("Marta"));
-
+        System.out.println("La edad de Maria es: " + edades.get("Maria"));
+        
+        //Acceder al numero HashCode
+        String nombreClave="Juan";
+        System.out.println("HashCode de Juan: "+nombreClave.hashCode());
+        nombreClave="Maria";
+        System.out.println("HashCode de Maria: "+nombreClave.hashCode());
+        nombreClave="Pedro";
+        System.out.println("HashCode de Pedro: "+nombreClave.hashCode());
+        
+        
         // Comprobar si una clave existe
         if (edades.containsKey("Pedro")) {
             System.out.println("Pedro está en el HashMap");
