@@ -62,6 +62,7 @@ public class Main {
 				System.out.println("Introduce la nota del nuevo alumno");
 				nota=sc.nextDouble();
 				alumnos.put(nombre,nota);
+				//alumnos.replace(nombre,nota);
 			}
 			break;
 		case 4:

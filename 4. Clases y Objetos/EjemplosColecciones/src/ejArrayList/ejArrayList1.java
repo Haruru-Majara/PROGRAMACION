@@ -8,7 +8,7 @@ public class ejArrayList1 {
 		//Para double es Double, para char es Character String es String 
 		//Cuando aparece Object en cualquier funcion, le podemos pasar lo que sea (clase)
 		//ArrayList mejor para: accesos directos
-		//LinkedList mejor para: inserciones y borrados
+		//LinkedList mejor para: inserciones y borrados  y me importa el orden
 		
 		ArrayList <Integer> numeros=new ArrayList<Integer>();
 		System.out.println("Elementos:"+numeros.size());

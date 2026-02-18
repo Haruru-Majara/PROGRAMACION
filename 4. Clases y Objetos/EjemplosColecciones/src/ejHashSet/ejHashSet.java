@@ -23,15 +23,17 @@ public class ejHashSet {
     else
     	System.out.println("El número no está");
     
-    /*
-    // De otra manera
+    
+    //De otra manera
     System.out.println("Usando un iterator:");
     Iterator<Integer> iterator = numbers.iterator();
     while (iterator.hasNext()) {
-        Integer nombre = iterator.next();
-        System.out.println(nombre);
+        Integer entero = iterator.next();
+        if (entero>5)
+        	System.out.println("Aprobado");
+        System.out.println(entero);
+        
     }
-    */
     
   }
 }
