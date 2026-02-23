@@ -36,10 +36,12 @@ public class Main {
 		 * Para guardar los 10 paises destino y poder comparar con el pais del objeto
 		 * */
 		HashSet <String> paises=new HashSet<String>();
-		
+		/**
+		 * Este array guarda las cartas que han sido excluidas porque su pais destino no esta en el hashset
+		 * */
 		ArrayList<Carta> e=new ArrayList<Carta>();
 		/**
-		 * Para comparar el pais 
+		 * Para comparar el pais y clasificar
 		 * */
 		HashMap<String,ArrayList<Carta>> sacos=new HashMap<String,ArrayList<Carta>>();
 		
@@ -67,6 +69,7 @@ public class Main {
 			System.out.println("3.Mostrar colecciones");
 			System.out.println("4.Salir");
 			opc=sc.nextInt();
+			sc.nextLine();
 			
 			switch(opc) {
 			case 1:
@@ -93,9 +96,21 @@ public class Main {
 					}
 				break;
 			case 2:
-				
+				/**
+				 * no entiendo esto, no lo he hecho yo -- preguntar
+				 * */
+				while(!cartas.isEmpty()) {
+					Carta c = cartas.removeFirst();
+					pais = c.getPais();
+					ArrayList<Carta> lista = sacos.get(pais);
+					lista.add(c);
+				}
 				break;
 			case 3:
+				System.out.println(cartas);
+				System.out.println(e);
+				System.out.println(paises);
+				System.out.println(sacos);
 				break;
 			case 4:
 				System.out.println("Fin del programa");
@@ -103,9 +118,21 @@ public class Main {
 			default:
 				System.out.println("No existe esta opción.");
 			}
+			System.out.println(cartas);
+			System.out.println(e);
+			System.out.println(paises);
+			System.out.println(sacos);
 		}while(opc!=4);
-		
+	
 	}
+	/**
+	 * Aqui estamos haciendo una funcion en la que le pasamos la LinkedList y la carta c que es la que comparamos
+	 * con el for vamos recorriendonos el size de el LinkedList
+	 * y el if nos dice: dame la info de la carta i (posicion en la que nos encontramos) de ahi sacame el apellido y 
+	 * comparalo con el apellido de carta c, si esto da mayor que 0 es decir que la carta i sea mayor que la c entonces retorna la posicion
+	 * donde esta i porque c es mas pequeño y la i pasa a la derecha porque es mayor, si c es mas grande que i, entonces retorna
+	 * size que es el ultimo lugar a la derecha
+	 * */
 	public static int buscarPos(LinkedList<Carta> cartas,Carta c) {
 		for(int i=0;i<cartas.size();i++)
 			if (cartas.get(i).getApellido().compareTo(c.getApellido())>0)

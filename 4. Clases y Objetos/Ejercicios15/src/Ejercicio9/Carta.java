@@ -45,6 +45,18 @@ public class Carta {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+
+
+	public String getPais() {
+		return pais;
+	}
+
+
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
 	
 	
 	
