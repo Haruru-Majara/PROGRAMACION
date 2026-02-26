@@ -3,6 +3,7 @@ package Ejercicio9;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -91,7 +92,7 @@ public class Main {
 					}
 					else {
 						int p=buscarPos(cartas, carta);
-						cartas.add(p,carta);
+						cartas.add(p,carta); // Le pasas la posicion donde quieres que lo añada
 						System.out.println("La carta se ha guardado correctamente");
 					}
 				break;
@@ -120,7 +121,9 @@ public class Main {
 			}
 			System.out.println(cartas);
 			System.out.println(e);
-			System.out.println(paises);
+			 for (String paisees : paises.keySet()) {
+		            System.out.println("Estos son los paises: "+paises);
+		        }
 			System.out.println(sacos);
 		}while(opc!=4);
 	
@@ -140,4 +143,37 @@ public class Main {
 		return cartas.size();
 	}
 
+	public static void clasificarCartas (LinkedList<Carta> cartas,
+			HashMap<String,ArrayList<Carta>> sacos) {
+		
+		for(Carta lista : cartas) {
+			if (!sacos.containsKey(lista.getPais())) {
+				sacos.put(lista.getPais(), new ArrayList<>());
+			}
+			sacos.get(lista.getPais()).add(lista);
+		}
+		cartas.clear();
+		System.out.println("Cartas clasificadas correctamente.");
+	}
+	
+	public static void clasificarCartas2 (LinkedList<Carta> cartas,
+			HashMap<String,ArrayList<Carta>> sacos) {
+		
+		Carta carta;
+		
+		//Aquí inicializamos
+		Iterator<Carta>it=cartas.iterator(); // flecha que apunta a la "primera" posicion del Linked
+		
+		while(it.hasNext()) {// preguntar si hay siguiente para poder operar
+			carta=it.next(); //coger el siguiente
+		
+			if (!sacos.containsKey(carta.getPais())) { //mirar si el pais existe dentro del Hasmap
+				sacos.put(carta.getPais(), new ArrayList<>()); // si no, lo crea en el hashmap y le da una casilla vacia al arrays
+			}
+			sacos.get(carta.getPais()).add(carta); // si esta, añade solamente la carta
+			it.remove(); // despues la borra del Linked porque ya la tiene en el array de hashmap
+		}
+		cartas.clear();
+		System.out.println("Cartas clasificadas correctamente.");
+	}
 }
