@@ -1,11 +1,10 @@
-package ejemploficheros;
+package Ejercicio3_Volun;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Scanner;
 
 /**
  * @descrition Clase que arbre un archivo en forma secuencial, con stream y
@@ -16,25 +15,15 @@ public class DArchivoSecuencialLeer {
 
 	public static void main(String[] args) throws IOException {
 		Path file = Paths.get("entrada.txt");
-		String palabra;
-		boolean encontrado=false;
-		Scanner sc=new Scanner(System.in);
 		Charset charset = Charset.forName("UTF-8");
 		BufferedReader reader = null;
-		System.out.println("Que palabra quieres buscar?");
-		palabra=sc.nextLine();
-		
+
 		try {
 			// Creamos un BuffereReader de java.io
 			reader = Files.newBufferedReader(file, charset);
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-				//System.out.println(line);
-				if (line.indexOf(palabra)!= -1) {
-					System.out.println("Palabra encontrada");
-					encontrado=true;
-					break;
-				}
+				System.out.println(line);
 			}
 		} catch (IOException x) {
 			System.err.format("IOException: %s%n", x);
@@ -43,8 +32,6 @@ public class DArchivoSecuencialLeer {
 			if (reader != null) {
 				reader.close();
 			}
-		if(!encontrado)
-			System.out.println("No existe la palabra");
 		}
 	}
 

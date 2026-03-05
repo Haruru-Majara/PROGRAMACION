@@ -27,15 +27,15 @@ public class EArchivoSecuencialEscribir {
 		try {
 			// Crea el fichero si no existe, si existe borra el contenido
 			//BufferedWriter writer = Files.newBufferedWriter(file, charset);
-			// Añade información al final
-			BufferedWriter writer = Files.newBufferedWriter(file, charset,APPEND);
+			// Aï¿½ade informaciï¿½n al final
+			BufferedWriter writer = Files.newBufferedWriter(file, charset,CREATE,WRITE);
 		
 			do{
-				System.out.println("Anota línea (fin para salir):");
+				System.out.println("Anota lï¿½nea (fin para salir):");
 				linea=sc.nextLine();
 				if (!linea.equalsIgnoreCase("FIN")){
 					writer.write(linea);
-					//Escribimos nueva línea para separarlas
+					//Escribimos nueva lï¿½nea para separarlas
 					writer.newLine();
 				}
 			}while(!linea.equalsIgnoreCase("FIN"));
