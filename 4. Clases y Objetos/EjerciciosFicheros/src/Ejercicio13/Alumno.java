@@ -25,6 +25,13 @@ public class Alumno {
 	public void setNota(double nota) {
 		this.nota = nota;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Alumno [nombre=" + nombre + ", apellido=" + apellido + ", nota=" + nota + ", fecha_nac=" + fecha_nac
+				+ "]";
+	}
 	
 	
 }

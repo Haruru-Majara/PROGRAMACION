@@ -1,3 +1,4 @@
 Ana,Lopez,7.2,14/12/2000
-Luis,Sanz,9.5,02/03/1998
+Luis,Sanz,9.5,02/03/19
 Fran,Altos,5.2,01/06/2004
+Sara,Beltran,9.8,02/02/2002
