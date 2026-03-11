@@ -21,8 +21,16 @@ public class Automovil {
 
 	@Override
 	public String toString() {
-		return "Automovil [matricula=" + matricula + ", fechaCompra=" + fechaCompra + ", precio=" + precio
-				+ ", dniPropietario=" + dniPropietario + "]";
+		return matricula + "," + fechaCompra + "," + precio
+				+ "," + dniPropietario;
 	}
-	
+
+	public LocalDate getFechaCompra() {
+		return fechaCompra;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+		
 }

@@ -16,5 +16,7 @@ public class Propietarios {
 		return "Propietarios [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + "]";
 	}
 	
-	
+	public String getNomAp() {
+		return nombre+ "," + apellido;
+	}
 }
