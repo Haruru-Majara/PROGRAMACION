@@ -130,7 +130,7 @@ public class Main {
 			Automovil auto=automoviles.get(i);
 			if (automoviles.get(i).getPrecio()<2000) {
 				Propietarios p=dueños.get(automoviles.get(i).getDniPropietario());
-				writer.write(auto.toString()+","+p.getNomAp()+"\n");
+				baratos.write(auto.toString()+","+p.getNomAp()+"\n");
 			}
 		}
 			
