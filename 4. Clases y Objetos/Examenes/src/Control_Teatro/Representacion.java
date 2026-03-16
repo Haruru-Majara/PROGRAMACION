@@ -25,11 +25,5 @@ public class Representacion {
 		return fecha;
 	}
 
-	public double comprar (int vip, int normales) {
-		
-	}
-	public boolean tieneEntradas() {
-		
-	}
 	
 }
