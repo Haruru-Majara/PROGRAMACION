@@ -19,6 +19,11 @@ public class Libro {
 	public String toString() {
 		return "Libro titulo=" + titulo + ", autor=" + autor + ", editorial=" + editorial + ", precio=" + precio;
 	}
+
+
+	public double getPrecio() {
+		return precio;
+	}
 	
 	
 }
