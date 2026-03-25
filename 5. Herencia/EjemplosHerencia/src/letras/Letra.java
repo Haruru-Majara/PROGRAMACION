@@ -9,9 +9,7 @@ public abstract class Letra{
 		c=car;
 		s=cad;
 		}
-	public char getNombre(){
-		return s;
-		}
+
 	abstract public void dibuja();
 			
 	}
