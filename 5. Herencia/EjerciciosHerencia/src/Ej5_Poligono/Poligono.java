@@ -11,6 +11,13 @@ public abstract class  Poligono {
 	
 	abstract public void hallarArea();
 	abstract public void hallarPerimetro();
+
+	@Override
+	public String toString() {
+		return "[area=" + area + ", perimetro=" + perimetro + "]";
+	}
+	
+
 	
 }
 	

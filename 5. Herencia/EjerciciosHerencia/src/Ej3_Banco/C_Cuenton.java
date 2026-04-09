@@ -8,9 +8,10 @@ public class C_Cuenton extends Cuenta {
 	
 	public C_Cuenton(HashSet titulares, double saldo) {
 		super(titulares, saldo);
-		// TODO Auto-generated constructor stub
 		this.interes=interesInicialCuenton;
 	}
-	
+	public double sorteo() {
+		double premio=interes*100;
+	}
 
 }

@@ -33,11 +33,13 @@ public class Main {
 				HashSet<String> titulares=new HashSet<>();
 				
 				for (int i=1;i<=opcTitulares;i++) {
+					sc.nextLine();
 					System.out.println("Anota titular "+i+":");
 					titulares.add(sc.nextLine());
 					
 				}
-
+			//	C_Cuenton c =new C_Cuenton(titulares,1000);
+			//	Cuenta c1=new Cuenta(titulares,500);
 				/*
 				 * System.out.println("¿Qué tipo de cuenta quieres abrir?");
 				 * System.out.println("1.Cuenta normal"); System.out.println("2.Cuentón");

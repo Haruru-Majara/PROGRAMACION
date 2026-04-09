@@ -21,6 +21,13 @@ public class Cuadrado extends Poligono{
 		this.perimetro=lado*4;
 	}
 
+	@Override
+	public String toString() {
+		return "Cuadrado: " + super.toString() ;
+	}
+
+	
+
 	
 
 }
