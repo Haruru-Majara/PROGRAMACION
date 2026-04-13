@@ -22,6 +22,11 @@ public void setName(String name) {
 }
 
 
+public int getAge() {
+	return age;
+}
+
+
 @Override
 public String toString() {
 	return "Student [number=" + number + ", name=" + name + ", age=" + age + "]";

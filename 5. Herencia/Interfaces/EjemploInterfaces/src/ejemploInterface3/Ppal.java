@@ -12,10 +12,16 @@ public class Ppal {
 		al.add(new Student(106,"Gemma",27));  
 		al.add(new Student(105,"Pedro",21));  
 		  
+		System.out.println("Alumnos ordenador por nombre: ");
 		Collections.sort(al,new StudentPorNombre());  
 		for(Student st:al){  
 			System.out.println(st);
 		}  
-		 
+		System.out.println("   ");
+		System.out.println("Alumnos ordenador por edad: ");
+		Collections.sort(al,new StudentPorEdad());  
+		for(Student st:al){  
+			System.out.println(st);
+		}  
 	}  
 }
