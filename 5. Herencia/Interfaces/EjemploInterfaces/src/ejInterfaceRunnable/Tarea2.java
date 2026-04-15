@@ -2,11 +2,11 @@ package ejInterfaceRunnable;
 
 public class Tarea2 implements Runnable{
 	  public void run() {
-	        // Esta es la tarea que se ejecutará en un hilo separado
-	        for (int i = 0; i < 1000; i++) {
+	        // Esta es la tarea que se ejecutarï¿½ en un hilo separado
+	        for (int i = 0; i < 10; i++) {
 	            System.out.println("Ejecutando tarea2... " + i);
 	            try {
-	                Thread.sleep(1); // Espera de 1 segundo
+	                Thread.sleep(1000); // Espera de 1 segundo
 	            } catch (InterruptedException e) {
 	                e.printStackTrace();
 	            }

@@ -21,13 +21,20 @@ public class ArraysReales implements Estadisticas {
 	@Override
 	public double maximo() {
 		// TODO Auto-generated method stub
-		return 0;
+		double max=numeros[0];
+		for(int i=0;i<numeros.length;i++)
+			if (numeros[i]>max)
+				max=numeros[i];
+		return max;
 	}
 
 	@Override
 	public double sumatorio() {
-		// TODO Auto-generated method stub
-		return 0;
+		double total=0;
+		for(int i=0;i<numeros.length;i++) {
+			total=total+numeros[i];
+		}
+		return total;		
 	}
 
 }

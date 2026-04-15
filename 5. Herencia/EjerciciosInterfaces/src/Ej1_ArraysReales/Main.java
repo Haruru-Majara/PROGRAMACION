@@ -8,6 +8,8 @@ public class Main {
 		ArraysReales arr=new ArraysReales(a);
 		
 		System.out.println(arr.minimo());
+		System.out.println(arr.maximo());
+		System.out.println(arr.sumatorio());
 
 	}
 
