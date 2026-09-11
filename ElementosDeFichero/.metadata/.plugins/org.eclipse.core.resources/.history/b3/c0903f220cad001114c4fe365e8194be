@@ -1,0 +1,35 @@
+package inicio;
+// Esto es usa para un comentario de varias lineas /***/
+/**
+ * autor: Vicky
+ * 
+ * fecha: 10/09/2026
+ * 
+ * Este programa es el primero que hago para probar tipos
+ * */
+public class Uno {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Los comentarios en java de dos barras oblicuas comentan toda la línea
+		System.out.println("Este es el número uno");
+		
+		//variables enteros : byte, short, int, long
+		//variables con coma: float, double
+		
+		int a=7; //declaracion de variable entera + guardado de valor
+		int b,c; //solo declaracion de variable
+		
+		b=4; // guardado de valor
+		c=a+b; // suma de variables
+		
+		System.out.println("Valor de a: "+a);
+		System.out.println("Valor de b: "+b);
+		System.out.println("La suma es: "+c);
+		//variables booleanos: boolean
+		//
+		
+	}
+
+}
