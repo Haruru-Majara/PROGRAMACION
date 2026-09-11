@@ -22,10 +22,6 @@ public class Uno {
 		int numero2,sumaTotal; //solo declaracion de variable
 		double producto,numero3=2.3,division;
 		char letra='A';
-		final int miconstante=15; //constante
-		boolean familiaNumerosa=true; //boolean
-		
-		System.out.println("Valor de familiaNumerosa: "+familiaNumerosa);
 		
 		numero2=4; // guardado de valor
 		sumaTotal=numero1+numero2; // suma de variables
@@ -44,7 +40,8 @@ public class Uno {
 		//Si los numero que divides son enteros, aunque la variable donde lo guardes es double o float, el resultado es entero
 		
 		System.out.println("La letra es: "+letra);
-		
+		//variables booleanos: boolean
+		//
 		
 	}
 
