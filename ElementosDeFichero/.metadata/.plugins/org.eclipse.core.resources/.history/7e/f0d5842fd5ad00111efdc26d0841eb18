@@ -39,7 +39,7 @@ public class Uno {
 		System.out.println("La división entre numero1 y numero2 es: "+division);
 		//Si los numero que divides son enteros, aunque la variable donde lo guardes es double o float, el resultado es entero
 		
-		System.out.println("La letra es: "+letra);
+		System.out.println("La letra es:"+letra);
 		//variables booleanos: boolean
 		//
 		
