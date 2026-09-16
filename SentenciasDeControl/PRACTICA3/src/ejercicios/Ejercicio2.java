@@ -1,0 +1,36 @@
+package ejercicios;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+/**
+ * Programa que lee dos números (distintos) y nos dice cual es el mayor
+ * */
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		
+		double num1,num2;
+		
+		System.out.println("Dame el primer número: ");
+		num1=sc.nextDouble();
+		System.out.println("Dame el segundo número: ");
+		num2=sc.nextDouble();
+		
+		if (num1==num2) {
+			System.out.println("Los dos números son iguales");
+			
+		}else {
+			if(num1>num2) {
+				System.out.println(num1+" es mayor que "+num2);
+			}else {
+				System.out.println(num2+" es mayor que "+num1);
+			}
+		}
+	}
+
+}
