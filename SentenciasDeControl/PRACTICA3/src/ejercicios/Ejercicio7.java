@@ -26,21 +26,29 @@ public class Ejercicio7 {
 		sc.useLocale(Locale.ENGLISH);
 		
 		double pKwh;
-		int kwh;
+		int kwhActual,kwhPasado,diff;
 		
-		System.out.println("¿Cuántos Kw/h usas?");
-		kwh=sc.nextInt();
+		System.out.println("¿Cuánto marca este mes tu contador?");
+		kwhActual=sc.nextInt();
+		System.out.println("¿Cuánto marcaba el mes pasado tu contador?");
+		kwhPasado=sc.nextInt();
 		
-		if(kwh<=0) {
+		diff=kwhActual-kwhPasado;
+		
+		System.out.println("La diferencia es de: "+diff+" Kw/h");
+		if(diff<=0) {
 			System.out.println("No nos vale esta cantidad");
 		}else {
-			if(kwh<=100) {
-				pKwh=100*0.50+2;
+			if(diff<=100) {
+				pKwh=diff*0.50+2;
+				System.out.println("El precio a pagar es: "+pKwh);
 			}else {
-				if(kwh<=250) {
-					pKwh=(100*0.50)+150*0.70+2;
+				if(diff<=250) {
+					pKwh=(100*0.50)+(diff-100)*0.70+2;
+					System.out.println("El precio a pagar es: "+pKwh);
 				}else {
-					pKwh=((100*0.50)+150
+					pKwh=((100*0.50+150*0.70)+diff-250)*1+2; 
+					System.out.println("El precio a pagar es: "+pKwh+"€");
 				}
 			}
 		}
