@@ -16,14 +16,35 @@ public class Ejercicio9 {
 		
 		int hora,min,seg;
 		
-		System.out.println("Introduce la hora (00 - 23");
+		System.out.println("Introduce la hora (00 - 23):");
 		hora=sc.nextInt();
-		System.out.println("Introduce los minutos (00 - 59");
+		System.out.println("Introduce los minutos (00 - 59):");
 		min=sc.nextInt();
-		System.out.println("Introduce los segundos (00 - 59");
+		System.out.println("Introduce los segundos (00 - 59):");
 		seg=sc.nextInt();
 		
-		System.out.println("Vamos a semarle un segundo a: "+hora+":"+min+":"+seg);
+		System.out.println("Vamos a sumarle un segundo a: "+hora+":"+min+":"+seg);
+		
+		if(seg<59) {
+			seg++;
+		}else {
+			if(seg==59 && min<59) {
+				seg=00;
+				min++;
+			}else {
+				if(seg==59 && min==59 && hora<23) {
+					seg=00;
+					min=00;
+					hora++;
+				}else {
+					seg=00;
+					min=00;
+					hora=00;
+				}
+			}
+		}
+		System.out.println(" ");
+		System.out.println("La hora actual es: "+hora+":"+min+":"+seg);
 	}
 
 }
