@@ -1,10 +1,10 @@
 package ejemplos;
 
 /**
- * Construir un programa que calcule el índice de masa corporal de una persona
- * (IMC = peso [kg] / altura2
- * 
- * [m]) e indique el estado en el que se encuentra esa
+ * Construir un programa que calcule el índice de masa corporal 
+ * de una persona
+ * (IMC = peso [kg] / altura2 [m])
+ * e indique el estado en el que se encuentra esa
  * persona en función del valor de IMC:
  * 
  * Valor de IMC            Diagnóstico
@@ -28,12 +28,12 @@ public class Ejemplo8 {
 		Scanner sc=new Scanner(System.in);
 		sc.useLocale(Locale.ENGLISH);
 		
-		int peso,altura,imc;
+		double peso,altura,imc;
 		
 		System.out.println("Escribe tu peso: ");
-		peso=sc.nextInt();
+		peso=sc.nextDouble();
 		System.out.println("Escribe tu altura: ");
-		altura=sc.nextInt();
+		altura=sc.nextDouble();
 		
 		imc=peso/(altura*altura);
 		
@@ -43,7 +43,27 @@ public class Ejemplo8 {
 			if(imc<17) {
 				System.out.println("Infrapeso");
 			}else {
-				if(imc<18)
+				if(imc<18) {
+					System.out.println("Bajo peso");
+				}else {
+					if(imc<25) {
+						System.out.println("Peso normal");
+					}else {
+						if(imc<30) {
+							System.out.println("Sobrepeso");
+						}else {
+							if(imc<35) {
+								System.out.println("Sobrepeso crónico");
+							}else {
+								if(imc<=40) {
+									System.out.println("Obesidad premórbida");
+								}else {
+									System.out.println("Obesidad mórbida");
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}

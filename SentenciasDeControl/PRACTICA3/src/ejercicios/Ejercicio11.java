@@ -27,20 +27,34 @@ public class Ejercicio11 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		sc.useLocale(Locale.ENGLISH);
-		
-		int codigo;
-		
+
+		int codigo, provincia, tOp, nOp;
+
 		System.out.println("Pon el código (4 dígitos)");
-		codigo=sc.nextInt();
+		codigo = sc.nextInt();
 		System.out.println(" ");
-		
-		System.out.println("El código es: "+codigo);
-		
-		if(codigo<4) {
+
+		System.out.println("El código es: " + codigo);
+		System.out.println(" ");
+
+		if (codigo>0000 && codigo>9999) {
+			System.out.println("ERROR:CÓDIGO NO VÁLIDO");
+		} else {
+			provincia = codigo / 1000;
+			codigo = codigo % 1000;
+			tOp = codigo / 100;
+			nOp = codigo % 100;
 			
+			System.out.println("PROVINCIA:               "+provincia);
+			System.out.println(" ");
+			System.out.println("TIPO DE OPERACIÓN:       "+tOp);
+			System.out.println(" ");
+			System.out.println("NÚMERO DE OPERACIÓN:     "+nOp);
 		}
+		
+	
 	}
 
 }

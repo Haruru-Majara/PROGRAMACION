@@ -20,14 +20,14 @@ public class Ejercicio3 {
 		num1=sc.nextDouble();
 		System.out.println("Dame el segundo número: ");
 		num2=sc.nextDouble();
-		
+		System.out.println("Los números se ordenan así: ");
 		if(num1==num2) {
-			System.out.println("Los números se ordenan así: "+num1+","+num2);	
+			System.out.println(num1+","+num2);	
 		}else {
 			if(num1>num2) {
-				System.out.println("Los números se ordenan así: "+num1+","+num2);
+				System.out.println(num1+","+num2);
 			}else {
-				System.out.println("Los números se ordenan así: "+num2+","+num1);
+				System.out.println(num2+","+num1);
 			}
 		}
 	}
