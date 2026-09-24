@@ -12,5 +12,5 @@
         </endorsedDirs>
     </libraryInfo>
     <libraryInfo home="/snap/eclipse/148/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_25.0.4.v20260826-0822/jre" version="25.0.4.1"/>
-    <libraryInfo home="/usr/lib/jvm/java-11-openjdk-amd64" version="11.0.32"/>
+    <libraryInfo home="/usr/lib/jvm/java-11-openjdk-amd64" version="11.0.32.1"/>
 </libraryInfos>
