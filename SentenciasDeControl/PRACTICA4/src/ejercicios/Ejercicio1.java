@@ -14,7 +14,6 @@ public class Ejercicio1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		sc.useLocale(Locale.ENGLISH);
 
 		int dia, mes, año;
 
@@ -30,7 +29,13 @@ public class Ejercicio1 {
 		System.out.println(" ");
 
 		switch (mes) {
-		case 1, 3, 5, 6, 8, 10, 12:
+		case 1:
+		case 3:
+		case 5:
+		case 6:
+		case 8:
+		case 10:
+		case 12:
 			if (dia < 31) {
 				dia++;
 				System.out.println(dia + "/" + mes + "/" + año);
@@ -65,7 +70,10 @@ public class Ejercicio1 {
 				}
 			}
 			break;
-		case 4, 7, 9, 11:
+		case 4:
+		case 7:
+		case 9:
+		case 11:
 			if(dia<30) {
 				dia++;
 				System.out.println(dia + "/" + mes + "/" + año);

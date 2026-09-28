@@ -97,7 +97,8 @@ public class Examen_inicial_22 {
 				descuentoFin = descuentoE;
 			}
 		}
-
+		
+		//eleccion de equipaje
 		System.out.println("¿Cuánto equipaje llevas?(Kg)");
 		equipaje = sc.nextInt();
 		
@@ -107,11 +108,14 @@ public class Examen_inicial_22 {
 			equipaje=0;
 		}
 		
+		//cuenta final de precio
 		precioFinal = precioBase - precioBase * descuentoFin / 100 + equipaje;
 		
 		System.out.println(" ");
 		System.out.println("-------Pagarás por el vuelo: "+precioFinal+"€");
 		System.out.println(" ");
+		
+		//cuantas horas tarda el vuelo
 		System.out.println("¿A qué hora sale tu vuelo?");
 		horaSal = sc.nextInt();
 		System.out.println("¿A qué minuto sale tu vuelo?");
