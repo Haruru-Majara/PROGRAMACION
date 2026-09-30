@@ -28,7 +28,7 @@ public class Ejercicio10 {
 
 		System.out.println("¿A qué categoría perteneces?");
 		categoria = sc.nextLine().charAt(0);
-
+		
 		if (categoria == 'c' || categoria == 'C') {
 			System.out.println("¿A qué sección perteneces?");
 			seccion = sc.nextInt();

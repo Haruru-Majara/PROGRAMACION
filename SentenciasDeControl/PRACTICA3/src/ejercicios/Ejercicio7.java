@@ -25,7 +25,7 @@ public class Ejercicio7 {
 		Scanner sc=new Scanner(System.in);
 		sc.useLocale(Locale.ENGLISH);
 		
-		double pKwh;
+		double pKwh=0;
 		int kwhActual,kwhPasado,diff;
 		
 		System.out.println("¿Cuánto marca este mes tu contador?");
@@ -36,22 +36,19 @@ public class Ejercicio7 {
 		diff=kwhActual-kwhPasado;
 		
 		System.out.println("La diferencia es de: "+diff+" Kw/h");
-		if(diff<=0) {
-			System.out.println("No nos vale esta cantidad");
-		}else {
-			if(diff<=100) {
+		
+		if(diff<0) 
+			System.out.println("Error, el consumo no puede ser negativo.");
+		else 
+			if(diff<=100) 
 				pKwh=diff*0.50+2;
-				System.out.println("El precio a pagar es: "+pKwh);
-			}else {
-				if(diff<=250) {
-					pKwh=(100*0.50)+(diff-100)*0.70+2;
-					System.out.println("El precio a pagar es: "+pKwh);
-				}else {
-					pKwh=((100*0.50+150*0.70)+diff-250)*1+2; 
-					System.out.println("El precio a pagar es: "+pKwh+"€");
-				}
-			}
-		}
+			else 
+				if(diff<=250) 
+					pKwh=100*0.50+(diff-100)*0.70+2;
+				else 
+					pKwh=100*0.50+150*0.70+(diff-250)*1+2; 
+		
+		System.out.println("El precio a pagar es: "+pKwh+"€");
 	}
 
 }

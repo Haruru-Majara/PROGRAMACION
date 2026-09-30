@@ -29,17 +29,17 @@ public class Ejercicio9 {
 			seg++;
 		}else {
 			if(seg==59 && min<59) {
-				seg=00;
+				seg=0;
 				min++;
 			}else {
 				if(seg==59 && min==59 && hora<23) {
-					seg=00;
-					min=00;
+					seg=0;
+					min=0;
 					hora++;
 				}else {
-					seg=00;
-					min=00;
-					hora=00;
+					seg=0;
+					min=0;
+					hora=0;
 				}
 			}
 		}

@@ -19,10 +19,10 @@ public class Ejercicio5 {
 		System.out.println("Dime un año: ");
 		a=sc.nextInt();
 		
-		if(a%4==0 && (a%100==0 || a%400!=0)) 
-			System.out.println(a+" es bisiesto");
-		else
+		if((a%4==0 && a%100==0 && a%400!=0) || (a%4!=0))
 			System.out.println(a+" no es bisiesto");
+		else
+			System.out.println(a+" es bisiesto");
 	}
 
 }
