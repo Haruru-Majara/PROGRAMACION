@@ -28,7 +28,6 @@ public class Ejercicio11 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		sc.useLocale(Locale.ENGLISH);
 
 		int codigo, provincia, tOp, nOp;
 
@@ -39,7 +38,7 @@ public class Ejercicio11 {
 		System.out.println("El código es: " + codigo);
 		System.out.println(" ");
 
-		if (codigo>0000 && codigo>9999) {
+		if (codigo<0 || codigo>9999) {
 			System.out.println("ERROR:CÓDIGO NO VÁLIDO");
 		} else {
 			provincia = codigo / 1000;

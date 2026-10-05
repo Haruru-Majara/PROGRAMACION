@@ -1,4 +1,4 @@
-package ejemplos;
+package ejemplos_ifelse;
 
 /**
  * Construir un programa que calcule el índice de masa corporal 

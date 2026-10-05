@@ -1,4 +1,4 @@
-package ejemplos;
+package ejemplos_ifelse;
 
 import java.util.Locale;
 import java.util.Scanner;
