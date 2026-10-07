@@ -28,24 +28,54 @@ public class PiedraPapelTijera {
 		System.out.println("Teniendo esto en cuenta, ¿qué eliges?: ");
 		System.out.println("0.Piedra");
 		System.out.println("1.Papel");
-		System.out.println("2.Tijera");
+		System.out.println("2.Tijeras");
 		System.out.println("3.Lagarto");
 		System.out.println("4.Spock");
 		System.out.println(" ");
 		opcH=sc.nextInt();
 		
-		if(opcH<0 || opcH>4) 
-			System.out.println("Error en el número");
+		if(opcH<0 || opcH>4)
+			System.out.println("Error en elección");
 		else {
-			System.out.println("Tu elección: "+opcH);
-			System.out.println("Elección de la máquina: "+opcM);
-			
-			if(opcH==opcM) 
-				System.out.println("EMPATE!!!");
+			System.out.println("Tú has elegido: "+opcH);
+			System.out.println("La máquina ha elegido: "+opcM);
+			if(opcH==opcM)
+				System.out.println("EMPATEEE!!!");
 			else {
-				
+				switch(opcH) {
+				case 0:
+					if(opcM==2 || opcM==3)
+						System.out.println("HAS GANADO!");
+					else 
+						System.out.println("GANA LA MÁQUINA :(");
+					break;
+				case 1:
+					if(opcM==0 || opcM==4)
+						System.out.println("HAS GANADO!");
+					else 
+						System.out.println("GANA LA MÁQUINA :(");
+					break;
+				case 2:
+					if(opcM==1 || opcM==3)
+						System.out.println("HAS GANADO!");
+					else 
+						System.out.println("GANA LA MÁQUINA :(");
+					break;
+				case 3:
+					if(opcM==1 || opcM==4)
+						System.out.println("HAS GANADO!");
+					else 
+						System.out.println("GANA LA MÁQUINA :(");
+					break;
+				case 4:
+					if(opcM==0 || opcM==2)
+						System.out.println("HAS GANADO!");
+					else 
+						System.out.println("GANA LA MÁQUINA :(");
+					break;
+				}
 			}
-				
+		
 		}
 		
 	}
