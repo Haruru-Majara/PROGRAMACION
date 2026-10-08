@@ -17,16 +17,14 @@ public class Ejercicio4 {
 		System.out.println("Anota un número: ");
 		num=sc.nextInt();
 		
-		cont++;
-		
 		while(num>=0) {
+			cont++;
 			System.out.println("Anota un número: ");
 			num=sc.nextInt();
-			cont++;
 		}
 		
 		System.out.println("Se anotó un número negativo");
-		System.out.println("Contador de número anotados: "+cont);
+		System.out.println("Contador de número positivos anotados: "+cont);
 	}
 
 }

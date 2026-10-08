@@ -23,7 +23,7 @@ public class Ejercicio2 {
 			else
 				System.out.println("Es negativo");
 			
-			System.out.println("Introduce un número: ");
+			System.out.println("Introduce otro número: ");
 			num=sc.nextInt();
 		}
 		System.out.println("El número introducido es 0. Fin del programa.");
