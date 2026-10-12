@@ -14,13 +14,36 @@ public class Ejercicio10 {
 		// TODO Auto-generated method stub
 		//Random r=new Random();
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Notas: ");
-		double nota=nextDouble();
 		
-		while(nota>=0) {
-			double nota=r.nextDouble();
+		double nota;
+		int sus=0,aprob=0,not=0,sobre=0;
 		
-		}
+		do {
+			System.out.println("Introducir nota: ");
+			nota=sc.nextDouble();
+			
+			if(nota<-1 || nota >10)
+				System.out.println("Nota introducida incorrecta, inténtelo de nuevo. ");
+			
+			if(nota==-1)
+				break;
+			else
+				if(nota>=0 && nota<5)
+					sus++;
+				else
+					if(nota<=6)
+						aprob++;
+					else
+						if(nota<=8)
+							not++;
+						else
+							sobre++;
+		}while(nota!=-1);
+		
+		System.out.println("Número de suspesos: "+sus);
+		System.out.println("Número de aprobados: "+aprob);
+		System.out.println("Número de notables: "+not);
+		System.out.println("Número de sobresalientes: "+sobre);
 	}
 
 }
