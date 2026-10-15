@@ -1,5 +1,7 @@
 package ejercicios;
 
+import java.util.Scanner;
+
 /**
  * Se desea conocer el luckynumber de cualquier persona. El número de la suerte se consigue
  * reduciendo la fecha de nacimiento a un número de un solo dígito.
@@ -11,7 +13,13 @@ public class Ejercicio8 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Scanner sc=new Scanner(System.in);
+		
+		int numFinal,dia,mes,año;
+		
+		while() {
+			
+		}
 	}
 
 }
