@@ -44,15 +44,19 @@ public class Ejercicio6 {
 			if(opc==1) {
 				System.out.println("Introducir edad: ");
 				edad=sc.nextInt();
+				
 				while(edad<0) {
 					System.out.println("Edad no válida. Introducir de nuevo: ");
 					edad=sc.nextInt();
 				}
+				
 				sc.nextLine();
+				
 				if(edad>=18) {
 					System.out.println("Ver espectáculo de teatro: (s/n)");
 					teatro=sc.nextLine().charAt(0);
 				}
+				
 				while(teatro!='s' && teatro!='n') {
 					System.out.println("Error en el dato, repitalo de nuevo:");
 					teatro=sc.nextLine().charAt(0);
