@@ -1,5 +1,10 @@
 package examenBuclesEscritos;
 
+/**
+ * Calcula la suma de los pares comprendidos entre dos números leídos por
+ * teclado.
+ * */
+
 import java.util.Scanner;
 
 public class bucle2While {

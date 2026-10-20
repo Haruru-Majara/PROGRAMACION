@@ -27,7 +27,7 @@ public class Ejercicio4 {
 		
 		int contGrup=1,adultos,peques,entradas,entradasMayor=0;
 		char tarifa;
-		final double adultosN=3,adultosR=2,pequesN=2,pequesR=1.2;
+		final double AdulN=3,AdulR=2,PequeN=2,PequeR=1.2;
 		double adultosTotal=0,pequesTotal=0,importeGrupo,importeTotal=0;
 		
 		System.out.println("-----BIENVENIDOS AL MUSEO-----");
@@ -64,11 +64,11 @@ public class Ejercicio4 {
 			
 			//aqui estamos viendo si tarifa es s o n
 			if(tarifa=='s') {
-				adultosTotal=adultosR*adultos;
-				pequesTotal=pequesR*peques;
+				adultosTotal=AdulR*adultos;
+				pequesTotal=PequeR*peques;
 			}else {
-				adultosTotal=adultosN*adultos;
-				pequesTotal=pequesN*peques;
+				adultosTotal=AdulN*adultos;
+				pequesTotal=PequeN*peques;
 			}
 			
 			//contabilizar el total de importeGrupo e importeTotal para poder parar

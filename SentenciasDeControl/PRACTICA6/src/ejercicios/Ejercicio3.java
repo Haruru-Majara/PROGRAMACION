@@ -32,7 +32,8 @@ public class Ejercicio3 {
 					if(calibre>=3 && calibre<=5)
 						categoriaB++;
 					else
-						categoriaC++;
+						if(calibre>5)
+							categoriaC++;
 					
 		}while(calibre!=0);
 		

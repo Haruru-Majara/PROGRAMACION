@@ -1,5 +1,10 @@
 package examenBuclesEscritos;
 
+/**
+ * Lee una letra, después lee letras hasta que te tecleen la anotada inicialmente y
+ * dí cuantas letras has leído distintas a la inicial.
+ * */
+
 import java.util.Scanner;
 
 public class bucle1Dowhile {
