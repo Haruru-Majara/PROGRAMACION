@@ -1,7 +1,8 @@
 package examenBuclesEscritos;
 
 /**
- * Realiza un programa que solicite al usuario un número entero y muestre por pantalla todos sus divisores
+ * Realiza un programa que solicite al usuario un número entero y muestre por pantalla todos sus
+ * divisores
  * */
 
 import java.util.Scanner;
