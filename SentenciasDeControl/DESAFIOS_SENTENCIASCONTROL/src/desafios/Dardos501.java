@@ -33,7 +33,7 @@ public class Dardos501 {
 		Random t=new Random();
 		
 		int jugador1=501,jugador2=501,turno=1;
-		int tirada=0,multiplicar,contTirada=0;
+		int tirada=0,multiplicar,contTirada1=0,contTirada2=0;
 		
 		for(int i=turno;i<=20;i++) {
 			System.out.println(" ");
@@ -50,24 +50,57 @@ public class Dardos501 {
 					if(multiplicar==2)
 						tirada=r.nextInt(61);
 					
-					jugador1=jugador1-tirada;
-				}else {
-					if(jugador1==0) {
-						System.out.println("Has GANADO!.");
-						break;
-					}else {
-						System.out.println("Te has pasado, pierde turno.");
+					if(jugador1>tirada)
+						jugador1=jugador1-tirada;
+					else {
+						if(jugador1==0)
+							System.out.println("JUGADOR 1 HA GANADO!");
 					}
+						
 				}
 				
-					
-					
-				contTirada++;
-				System.out.println("Tirada "+contTirada+": "+tirada);
+				contTirada1++;
+				System.out.println("Tirada "+contTirada1+": "+tirada);
 			}
+			
+
+			System.out.println(" ");
+			System.out.println("*Jugador 2*");
+			for(int j2=0;j2<=2;j2++) {
+				if(jugador2>0) {
+					multiplicar=t.nextInt(3);
+					if(multiplicar==0)
+						tirada=r.nextInt(21);
+					if(multiplicar==1)
+						tirada=r.nextInt(41);
+					if(multiplicar==2)
+						tirada=r.nextInt(61);
+						
+					if(jugador2>tirada)
+						jugador2=jugador2-tirada;
+					else {
+						if(jugador2==0)
+							System.out.println("JUGADOR 2 HA GANADO!");
+					}
+							
+				}
+				
+			contTirada2++;
+			System.out.println("Tirada "+contTirada2+": "+tirada);
+				
+		}
+			System.out.println(" ");
 			System.out.println("Puntuación Jugador 1: "+jugador1);
 			System.out.println("Puntuación Jugador 2: "+jugador2);
 		}
+		System.out.println(" ");
+		if(jugador1==jugador2)
+			System.out.println("AMBOS JUGADORES HAN EMPATADO!!!");
+		else
+			if(jugador1<jugador2)
+				System.out.println("GANA JUGADOR 1!!!");
+			else
+				System.out.println("GANA JUGADOR 2!!!");
 	}
 
 }
