@@ -20,7 +20,7 @@ public class Ejercicio5 {
 		Scanner sc=new Scanner(System.in);
 		
 		char diaSemana;
-		int edad;
+		int edad=0;
 		double precioEntrada=5,precioETotal;
 		boolean diaCorrecto,siguiente;
 		
@@ -35,7 +35,7 @@ public class Ejercicio5 {
 				System.out.println("Error, introducir de nuevo. ");
 			}while(diaCorrecto!=true);
 			
-			if(diaSemana!='X') {
+			if(diaSemana=='M' || diaSemana=='S' || diaSemana=='D') {
 				do {
 					System.out.println("Introduzca la edad: ");
 					edad=sc.nextInt();
@@ -44,7 +44,11 @@ public class Ejercicio5 {
 				}while(edad<0);
 			}
 			
+			precioETotal=calcularPrecio(precioEntrada,diaSemana,edad);
 			
+			System.out.println(" ");
+			System.out.println("El precio de la entrada es: "+precioETotal);
+			System.out.println(" ");
 			System.out.println("¿Hay más clientes esperando?");
 			siguiente=sc.nextBoolean();
 			sc.nextLine();
@@ -58,17 +62,27 @@ public class Ejercicio5 {
 	}
 	
 	public static double calcularPrecio(double precioBase,char dia, int edad) {
+		double precioFinal=0;
 		switch(dia) {
 		case 'M':
+			if (edad>65)
+				precioFinal=precioBase-precioBase*50/100;
+			else
+				precioFinal=precioBase;
 			break;
 		case 'X':
+			precioFinal=precioBase-precioBase*20/100;
 			break;
 		case 'S':
 		case 'D':
+			if(edad<18)
+				precioFinal=precioBase-precioBase*15/100;
+			else
+				precioFinal=precioBase;
 			break;
-		case 'L':
-		
-		
+			default:
+				precioFinal=precioBase;
 		}
+		return precioFinal;
 	}
 }
