@@ -99,53 +99,57 @@ public class Ejercicio6 {
 		} else
 			return false;
 	}
-
-	public static int diaDelAño(int d, int m, int a) {
-		int total = 0, diasFebrero = 0;
-
-		if (a % 4 == 0 && a % 100 != 0 || a % 400 == 0)
-			diasFebrero = 29;
-		else
-			diasFebrero = 28;
-
+	
+	public static int diasMes(int m,int a) {
+		int dias=0;
 		switch (m) {
 		case 1:
-			total = d;
+			dias=31;
 			break;
 		case 2:
-			total = 31 + d;
+			//Comprueba el año para ver si mueves a dias 28 ó 29
+			if (a % 4 == 0 && a % 100 != 0 || a % 400 == 0)
+				dias = 29;
+			else
+				dias = 28;
 			break;
 		case 3:
-			total = 31 + diasFebrero + d;
+			dias=31;
 			break;
 		case 4:
-			total = 31 + diasFebrero + 31 + d;
+			dias=30;
 			break;
 		case 5:
-			total = 31 + diasFebrero + 31 + 30 + d;
+			dias=31;
 			break;
 		case 6:
-			total = 31 + diasFebrero + 31 + 30 + 31 + d;
+			dias=30;
 			break;
 		case 7:
-			total = 31 + diasFebrero + 31 + 30 + 31 + 30 + d;
+			dias=31;
 			break;
 		case 8:
-			total = 31 + diasFebrero + 31 + 30 + 31 + 30 + 31 + d;
+			dias=31;
 			break;
 		case 9:
-			total = 31 + diasFebrero + 31 + 30 + 31 + 30 + 31 + 31 + d;
+			dias=30;
 			break;
 		case 10:
-			total = 31 + diasFebrero + 31 + 30 + 31 + 30 + 31 + 31 + 30 + d;
+			dias=31;
 			break;
 		case 11:
-			total = 31 + diasFebrero + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + d;
-			break;
-		case 12:
-			total = 31 + diasFebrero + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + d;
+			dias=30;
 			break;
 		}
+		return dias;
+	}
+
+	public static int diaDelAño(int d, int m, int a) {
+		int total=0;
+		for(int i=1;i<m;i++) {
+			total=total+diasMes(i,a);
+		}
+		total=total+d;
 		return total;
 	}
 }
