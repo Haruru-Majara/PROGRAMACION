@@ -70,46 +70,20 @@ public class Ejercicio7 {
 	}
 	
 	public static int diasMes(int m,int a) {
-		int dias=0;
+		boolean bisiesto=esBisiesto(a);
 		switch (m) {
-		case 1:
-			dias=31;
-			break;
+		case 1,3,5,7,8,10:
+			return 31;
+		case 4,6,9,11:
+			return 30;
 		case 2:
-			if (a % 4 == 0 && a % 100 != 0 || a % 400 == 0)
-				dias = 29;
+			if(bisiesto==true)
+				return 29;
 			else
-				dias = 28;
-			break;
-		case 3:
-			dias=31;
-			break;
-		case 4:
-			dias=30;
-			break;
-		case 5:
-			dias=31;
-			break;
-		case 6:
-			dias=30;
-			break;
-		case 7:
-			dias=31;
-			break;
-		case 8:
-			dias=31;
-			break;
-		case 9:
-			dias=30;
-			break;
-		case 10:
-			dias=31;
-			break;
-		case 11:
-			dias=30;
-			break;
+				return 28;
+		default:
+			return 0;
 		}
-		return dias;
 	}
 	
 	public static void sacarFecha(int d,int a) {

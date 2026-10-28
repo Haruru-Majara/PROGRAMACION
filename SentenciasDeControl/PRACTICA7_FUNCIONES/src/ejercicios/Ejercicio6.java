@@ -42,7 +42,7 @@ public class Ejercicio6 {
 
 			diaAño = diaDelAño(dia, mes, año);
 
-			System.out.println("El " + dia + " del " + mes + " fue/es/será el día " + diaAño + " del año " + año);
+			nombreMes(dia,mes,diaAño,año);
 
 			System.out.println(" ");
 			System.out.println("¿Otra fecha?");
@@ -50,6 +50,46 @@ public class Ejercicio6 {
 		} while (seguir == true);
 	}
 
+	public static void nombreMes(int d,int m, int dA, int a) {
+		switch(m) {
+		case 1:
+			System.out.println("El " + d + " de Enero fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 2:
+			System.out.println("El " + d + " de Febrero fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 3:
+			System.out.println("El " + d + " de Marzo fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 4:
+			System.out.println("El " + d + " de Abril fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 5:
+			System.out.println("El " + d + " de Mayo fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 6:
+			System.out.println("El " + d + " de Junio fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 7:
+			System.out.println("El " + d + " de Julio fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 8:
+			System.out.println("El " + d + " de Agosto fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 9:
+			System.out.println("El " + d + " de Septiembre fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 10:
+			System.out.println("El " + d + " de Octubre fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 11:
+			System.out.println("El " + d + " de Noviembre fue/es/será el día " + dA + " del año " + a);
+			break;
+		case 12:
+			System.out.println("El " + d + " de Diciembre fue/es/será el día " + dA + " del año " + a);
+			break;
+		}
+	}
 	public static boolean validarFecha(int d, int m, int a) {
 		boolean bisiesto;
 		if (a >= 1000) {
@@ -62,7 +102,7 @@ public class Ejercicio6 {
 				case 8:
 				case 10:
 				case 12:
-					if (d <= 31)
+					if (d>=1 || d <= 31)
 						return true;
 					else
 						return false;
@@ -70,7 +110,7 @@ public class Ejercicio6 {
 				case 6:
 				case 9:
 				case 11:
-					if (d <= 30)
+					if (d>=1 || d <= 30)
 						return true;
 					else
 						return false;
@@ -81,12 +121,12 @@ public class Ejercicio6 {
 						bisiesto = false;
 
 					if (bisiesto == false) {
-						if (d <= 28)
+						if (d>=1 || d <= 28)
 							return true;
 						else
 							return false;
 					} else {
-						if (d <= 29)
+						if (d>=1 || d <= 29)
 							return true;
 						else
 							return false;
