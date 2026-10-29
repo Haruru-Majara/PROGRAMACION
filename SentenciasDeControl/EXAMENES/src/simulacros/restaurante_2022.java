@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * PRIMER EJERCICIO (SIN CLASES) (6,25 puntos)
+ * 
 Un restaurante quiere gestionar las reservas para una cena con espectáculo mediante un programa. El
 restaurante puede dar de cenar a 80 comensales. Por cada cliente que llama para reservar se toma nota
 de lo siguiente:
@@ -50,23 +51,48 @@ public class restaurante_2022 {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		
-		int personas,numeroComensales=80;
+		int personas,numeroComensales=80,opcMenu,opc,grupo;
 		
 		do {
+			do {
+				System.out.println("Anote cuantos comensales son para cenar: ");
+				personas=sc.nextInt();
+				
+				if(personas<1 || personas>80)
+					System.out.println("Error número de comensales.");
+			}while(personas<1 || personas>80);
 			
-			System.out.println("Anote cuantas personas son para cenar: ");
-			personas=sc.nextInt();
-			
-			if(personas<=numeroComensales)
+			if(personas<=numeroComensales) {
 				numeroComensales=numeroComensales-personas;
+				grupo=numeroComensales;
+				
+				do {
+					System.out.println("LISTA DE MENÚS A ELEGIR: ");
+					System.out.println("1.Menú económico (25€)");
+					System.out.println("2.Menú degustación (35€)");
+					System.out.println("3.Menú estrella (50€)");
+					menu=sc.nextInt();
+					
+					if(!menuCorrecto(menu))
+						System.out.println("Error en la elección del menú, introduzca otra vez la opción.");
+					System.out.println(" ");
+				}while(!menuCorrecto(menu));
+			}
 			else {
 				System.out.println("Lo sentimos, el número de comensales supera el aforo.");
+				System.out.println(" ");
 			}
-				
-				
 			
-			
+			do {
+				System.out.println("OPCIONES TRAS LAS CENA:");
+				System.out.println("1.2 Copas (9€)");
+				System.out.println("2.Barra libre (30€)");
+			}while();
 		}while(numeroComensales<=80);
 	}
-
+	public static boolean menuCorrecto(int menu) {
+		if(menu>=1 && menu<=3)
+			return true;
+		return false;
+	}
 }
