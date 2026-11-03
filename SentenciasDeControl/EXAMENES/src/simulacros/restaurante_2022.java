@@ -51,7 +51,7 @@ public class restaurante_2022 {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		
-		int personas,numeroComensales=80,opcMenu,opc,grupo;
+		int personas,personas2,numeroComensales=80,opcMenu,opcMenu2,grupo;
 		
 		do {
 			do {
@@ -71,23 +71,35 @@ public class restaurante_2022 {
 					System.out.println("1.Menú económico (25€)");
 					System.out.println("2.Menú degustación (35€)");
 					System.out.println("3.Menú estrella (50€)");
-					menu=sc.nextInt();
+					opcMenu=sc.nextInt();
 					
-					if(!menuCorrecto(menu))
+					if(!menuCorrecto(opcMenu))
 						System.out.println("Error en la elección del menú, introduzca otra vez la opción.");
 					System.out.println(" ");
-				}while(!menuCorrecto(menu));
+				}while(!menuCorrecto(opcMenu));
 			}
 			else {
 				System.out.println("Lo sentimos, el número de comensales supera el aforo.");
 				System.out.println(" ");
 			}
 			
+			
 			do {
 				System.out.println("OPCIONES TRAS LAS CENA:");
 				System.out.println("1.2 Copas (9€)");
 				System.out.println("2.Barra libre (30€)");
-			}while();
+				opcMenu2=sc.nextInt();
+				if(opcMenu2!=1 && opcMenu2!=2)
+					System.out.println("Error, vuelva a introducir la opción.");
+				
+					System.out.println("¿Cuántas personas?");
+					personas2=sc.nextInt();
+					if(opc)
+				while(personas2<=personas);
+				
+				//if(opcMenu2==1)
+					
+			}while(opcMenu2!=1 && opcMenu2!=2);
 		}while(numeroComensales<=80);
 	}
 	public static boolean menuCorrecto(int menu) {
