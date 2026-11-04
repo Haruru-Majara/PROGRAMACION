@@ -22,33 +22,26 @@ public class Ejercicio9 {
 		System.out.println("Introduce la segunda cadena: ");
 		c2=sc.nextLine().toLowerCase();
 		
-		do {
-			
-		
 		if(c1.length()>c2.length()) {
-			/*while(fin<=c1.length()) {
-				if(c1.indexOf(c2)>=0) 
+			if(c1.indexOf(c2)>=0) {
+				for(int i=pos;i<c1.length()-1;i++) {
+					pos=c1.indexOf(c2)+c2.length();
 					cont++;
-				
-			}
-			*/
-			
-			
-				for(int i=;i<c1.length()-1;i++) {
-					if(c1.indexOf(c2)>=0)
-						cont++;
-					pos=
+					c1=c1.substring(pos,c1.length());	
 				}
-				pos=c1.
-			}
-			System.out.println("La cadena "+c2+" seha repetido en "+c1+" : "+cont+" veces.");
+				System.out.println("La cadena "+c2+" se ha repetido en "+c1+" : "+cont+" veces.");
+			}else
+				System.out.println("No se ha encontrado la cadena "+c2+" en "+c1);
 		}else {
-			while(c2.length()>-1) {
-				if(c2.indexOf(c1)>=0) 
+			if(c2.indexOf(c1)>=0) {
+				for(int i=pos;i<c2.length()-1;i++) {
+					pos=c2.indexOf(c1)+c1.length();
 					cont++;
-				
-			}
-			System.out.println("La cadena "+c1+" seha repetido en "+c2+" : "+cont+" veces.");
+					c2=c2.substring(pos,c2.length());
+				}
+				System.out.println("La cadena "+c1+" se ha repetido en "+c2+" : "+cont+" veces.");	
+			}else
+				System.out.println("No se ha encontrado la cadena "+c1+" en "+c2);
 		}
 
 	}
