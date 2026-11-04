@@ -20,9 +20,10 @@ public class Ejercicio3 {
 		Random r=new Random();
 		
 		int numPer,cont=0;
-		String nom,ape1,ape2;
-		numPer=r.nextInt(5);
+		String nom,ape1,ape2=" ",codigo;
+		numPer=r.nextInt(5)+1;
 		
+		System.out.println("Pediremos el nombre de "+numPer+" persona/s: ");
 		do {
 			System.out.println("Anota un nombre: ");
 			nom=sc.nextLine().toUpperCase();
@@ -34,12 +35,32 @@ public class Ejercicio3 {
 				ape2=sc.nextLine().toUpperCase();
 			}
 			
+		codigo=generarCodigo(nom,ape1,ape2);
+		
+		System.out.println("El código es: "+codigo);
+		
+		cont++;
+		System.out.println(" ");
 		}while(cont<numPer);
 	}
-	public static void generarCodigo (String n, String a1, String a2) {
-		String codigo;
+	public static String generarCodigo (String n, String a1, String a2) {
+		String codigo=" ";
 		
 		if(a1.length()>=3)
-			n=n.
+			codigo=n.substring(0,1)+a1.substring(0, 3);
+		else {
+			if(a1.length()<3 && a2.length()>=3)
+				codigo=n.substring(0,1)+a2.substring(0, 3);
+			else {
+				if(a2.length()<3) {
+					if(a1.length()>a2.length())
+						codigo=n.substring(0,1)+a1;
+					else
+						codigo=n.substring(0,1)+a2;
+				}
+			}
+		}
+		
+		return codigo;
 	}
 }

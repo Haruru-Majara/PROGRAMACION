@@ -1,5 +1,9 @@
 package ejercicios;
 
+/**
+ * Programa que lee cadenas hasta anotar “fin” y las muestra en mayúsculas.
+ * */
+
 import java.util.Scanner;
 
 public class Ejercicio1 {
