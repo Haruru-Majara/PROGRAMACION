@@ -89,12 +89,15 @@ public class restaurante_2022 {
 				System.out.println("1.2 Copas (9€)");
 				System.out.println("2.Barra libre (30€)");
 				opcMenu2=sc.nextInt();
+				
 				if(opcMenu2!=1 && opcMenu2!=2)
 					System.out.println("Error, vuelva a introducir la opción.");
 				
-					System.out.println("¿Cuántas personas?");
-					personas2=sc.nextInt();
-					if(opc)
+				System.out.println("¿Cuántas personas?");
+				personas2=sc.nextInt();
+					
+				if(personas2>personas)
+						
 				while(personas2<=personas);
 				
 				//if(opcMenu2==1)
