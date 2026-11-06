@@ -15,7 +15,7 @@ public class Ejercicio9 {
 		Scanner sc=new Scanner(System.in);
 		
 		String c1, c2;
-		int cont=0,pos=0;
+		int cont=0,pos=0,pos2;
 		
 		System.out.println("Introduce la primera cadena: ");
 		c1=sc.nextLine().toLowerCase();
@@ -25,23 +25,29 @@ public class Ejercicio9 {
 		if(c1.length()>c2.length()) {
 			if(c1.indexOf(c2)>=0) {
 				for(int i=pos;i<c1.length()-1;i++) {
-					pos=c1.indexOf(c2)+c2.length();
+					pos2=c1.indexOf(c2);
+					if (pos2==-1)
+						break;
+					pos=pos2+c2.length();
 					cont++;
-					c1=c1.substring(pos,c1.length());	
+					c1=c1.substring(pos);	
 				}
-				System.out.println("La cadena "+c2+" se ha repetido en "+c1+" : "+cont+" veces.");
+				System.out.println("La cadena "+c2+" se ha repetido: "+cont+" veces.");
 			}else
-				System.out.println("No se ha encontrado la cadena "+c2+" en "+c1);
+				System.out.println("No se ha encontrado la cadena "+c2);
 		}else {
 			if(c2.indexOf(c1)>=0) {
 				for(int i=pos;i<c2.length()-1;i++) {
-					pos=c2.indexOf(c1)+c1.length();
+					pos2=c2.indexOf(c1);
+					if(pos2==-1)
+						break;
+					pos=pos2+c1.length();
 					cont++;
-					c2=c2.substring(pos,c2.length());
+					c2=c2.substring(pos);
 				}
-				System.out.println("La cadena "+c1+" se ha repetido en "+c2+" : "+cont+" veces.");	
+				System.out.println("La cadena "+c1+" se ha repetido: "+cont+" veces.");	
 			}else
-				System.out.println("No se ha encontrado la cadena "+c1+" en "+c2);
+				System.out.println("No se ha encontrado la cadena "+c1);
 		}
 
 	}
