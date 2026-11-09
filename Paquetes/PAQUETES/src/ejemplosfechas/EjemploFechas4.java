@@ -30,11 +30,11 @@ public class EjemploFechas4 {
 		try{
 			fecha=LocalDate.parse(fechaAnotada);
 			System.out.println(fecha);
-			System.out.println("Dia:"+fecha.getDayOfMonth()+",mes:"+fecha.getMonthValue()+",año:"+fecha.getYear());
-			// Para obtener el día de la semana
-			System.out.println("Día de la semana:"+fecha.getDayOfWeek());
-			System.out.println("Día de la semana:"+fecha.getDayOfWeek().getDisplayName(TextStyle.FULL,Locale.getDefault()));
-			System.out.println("Día de la semana:"+fecha.getDayOfWeek().getValue()); /* en número */
+			System.out.println("Dia:"+fecha.getDayOfMonth()+",mes:"+fecha.getMonthValue()+",aï¿½o:"+fecha.getYear());
+			// Para obtener el dï¿½a de la semana
+			System.out.println("DÃ­a de la semana:"+fecha.getDayOfWeek());
+			System.out.println("DÃ­a de la semana:"+fecha.getDayOfWeek().getDisplayName(TextStyle.FULL,Locale.getDefault()));
+			System.out.println("DÃ­a de la semana:"+fecha.getDayOfWeek().getValue()); /* en nï¿½mero */
 			System.out.println(fecha.getMonth().getDisplayName(TextStyle.FULL,Locale.getDefault()));	
 			
 		}catch(DateTimeParseException e){
@@ -42,26 +42,26 @@ public class EjemploFechas4 {
 			System.exit(0);
 		}
 		
-		/*Diferencia de dos fechas en días */
+		/*Diferencia de dos fechas en dÃ­as */
 		long dias=ChronoUnit.DAYS.between(fecha,fechaActual);
-		System.out.println("Número de días entre las dos fechas:"+dias);
+		System.out.println("NÃºmero de dÃ­as entre las dos fechas:"+dias);
 		
 		Period period = Period.between(fecha,fechaActual);
 	    int diff = period.getDays();
 	    int meses =period.getMonths();
 	    int annos= period.getYears();
-	    System.out.println("Número de días entre las dos fechas:"+diff+",meses:"+meses+",años:"+annos);
+	    System.out.println("NÃºmero de dÃ­as entre las dos fechas:"+diff+",meses:"+meses+",aï¿½os:"+annos);
 	    
 	    /*Diferencia de dos horas */
 	    LocalDateTime ahora=LocalDateTime.now();
 	    LocalDateTime despues=ahora.plusHours(2);
 	    
 	    long horas=ChronoUnit.HOURS.between(ahora,despues);
-		System.out.println("Número de horas entre las dos:"+horas);
+		System.out.println("NÃºmero de horas entre las dos:"+horas);
 		
 	    Duration duration = Duration.between(ahora,despues);
 	    long diff2 = duration.toHours();
-	    System.out.println("Número de horas entre las dos horas:"+diff2);
+	    System.out.println("NÃºmero de horas entre las dos horas:"+diff2);
 	    
 	    
 		

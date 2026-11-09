@@ -44,7 +44,7 @@ public class Ejercicio4 {
 				int resto=num%23;
 				//System.out.println(resto);
 				char letra=letras.charAt(resto);
-				if(letra==dni.charAt(8))
+				if(letra==Character.toUpperCase(dni.charAt(8)))
 					return true;
 				else
 					return false;

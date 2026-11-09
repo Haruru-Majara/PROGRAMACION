@@ -14,7 +14,7 @@ public class EjemploFechas2 {
 		System.out.println("Fecha actual:"+fechaActual); 
 		//Extraigo dia, mes y año
 		System.out.println("Fecha actual con otro formato:"+fechaActual.getDayOfMonth()+"/"+fechaActual.getMonthValue()+"/"+fechaActual.getYear());
-		//Resto tres d�as a la fecha
+		//Resto tres días a la fecha
 		fechaActual=fechaActual.minusDays(3);
 		System.out.println("Fecha tres días antes:"+fechaActual); 
 		//Sumo 4 meses a la fecha
@@ -24,7 +24,7 @@ public class EjemploFechas2 {
 		LocalTime horaActual = LocalTime.now(); 
 		System.out.println("Hora actual:"+horaActual); 
 		if (horaActual.isBefore(LocalTime.of(11, 25)))
-			System.out.println("Todav�a no hemos ido al recreo");
+			System.out.println("Todavía no hemos ido al recreo");
 		else
 			System.out.println("Ya hemos subido del recreo");
 		// Extraigo horas, minutos y segundos

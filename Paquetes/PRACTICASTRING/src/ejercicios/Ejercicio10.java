@@ -20,7 +20,7 @@ public class Ejercicio10 {
 		Scanner sc=new Scanner(System.in);
 		
 		int opc;
-		char otro,extranjero;
+		char otro=' ',extranjero=' ';
 		String cadena="";
 		
 		
@@ -29,11 +29,20 @@ public class Ejercicio10 {
 				System.out.println("-----OPCIONES PARA VALIDAR-----");
 				System.out.println("1.Una matrícula");
 				System.out.println("2.Un NIE o NIF");
-				System.out.println("3.Un codigo postal");
+				System.out.println("3.Un codigo postal, empezando por 28.");
 				System.out.println("4.Un número de telefono");
-				System.out.println("5.Un codigo de usuario");
+				System.out.println("5.Un codigo de usuario, de 5 a 10 caracteres, empezando por una letra.");
+				System.out.println(" ");
+				System.out.println("Elige opción: ");
 				opc=sc.nextInt();
+				
+				if(opc<1 || opc>5)
+					System.out.println("Opción incorrecta, elija otra.");
+				
+				System.out.println(" ");
 			}while(opc<1 || opc>5);
+			
+			sc.nextLine();
 			
 			switch(opc) {
 			case 1:
@@ -41,15 +50,22 @@ public class Ejercicio10 {
 				cadena=sc.nextLine();
 				break;
 			case 2:
-				System.out.println("¿Eres Extranjero?(S/N)");
-				extranjero=Character.toUpperCase(sc.nextLine().charAt(0));
+				do {
+					System.out.println("¿Eres Extranjero?(S/N)");
+					extranjero=Character.toUpperCase(sc.nextLine().charAt(0));
+				
+					if(extranjero!='S' && extranjero!='N')
+						System.out.println("Error en el valor introducido, inténtelo de nuevo.");
+							
+				}while(extranjero!='S' && extranjero!='N');
+				
 				if(extranjero=='S') {
 					System.out.println("Introduce NIE: ");
 					cadena=sc.nextLine();
 				}else {
-					System.out.println("Introduce NIF:");
-					cadena=sc.nextLine();
-				}		
+						System.out.println("Introduce NIF:");
+						cadena=sc.nextLine();
+				}
 				break;
 			case 3:
 				System.out.println("Introduce código postal: ");
@@ -65,10 +81,14 @@ public class Ejercicio10 {
 				break;
 			}
 			
-			if(validarAlgo(opc,cadena)==true)
+			if(validarAlgo(opc,cadena,extranjero)==true)
 				System.out.println("Cadena introducida correcta.");
 			else
 				System.out.println("Cadena introducida incorrecta.");
+			
+			System.out.println("");
+			System.out.println("¿Quieres comprobar otra cosa?");
+			otro=Character.toUpperCase(sc.nextLine().charAt(0));
 			
 		}while(otro=='S');
 	}
@@ -77,23 +97,51 @@ public class Ejercicio10 {
 		
 		switch(opc) {
 		case 1:
-			patron="[0-9]{4}[A-Z]{3}";
-			if(cad==patron)
+			patron="[0-9]{4}[A-Za-z]{3}";
+			if(cad.matches(patron))
 				return true;
 			return false;
 		case 2:
 			if(ex=='S') {
-				patron="[XYZ][0-9]{7}[A-Z]";
-				if(cad==patron)
+				patron="[XYZxyz][0-9]{7}[A-Za-z]";
+				if(cad.matches(patron))
 					return true;
 				return false;
 			}else {
+				String letras="TRWAGMYFPDXBNJZSQVHLCKE";
+				patron ="^[0-9]{8}[A-Za-z]";
 				
+				if(!cad.matches(patron))
+					return false;
+				else {
+					int num=Integer.parseInt(cad.substring(0, 8)); //pasada una cadena la transforma en numero
+					//System.out.println(num);
+					int resto=num%23;
+					//System.out.println(resto);
+					char letra=letras.charAt(resto);
+					if(letra==Character.toUpperCase(cad.charAt(8)))
+						return true;
+					else
+						return false;
+				}
 			}
-			break;
 		case 3:
-			
-			
+			patron="28[0-9]{3}";
+			if(cad.matches(patron))
+				return true;
+			return false;
+		case 4:
+			patron="[679][0-9]{8}";
+			if(cad.matches(patron))
+				return true;
+			return false;
+		case 5:
+			patron="[A-Za-z][0-9A-Za-z]{5,9}";
+			if(cad.matches(patron))
+				return true;
+			return false;
 		}
+		return false;
+		
 	}
 }
