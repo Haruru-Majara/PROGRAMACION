@@ -17,7 +17,7 @@ public class Ejercicio2 {
 		
 		
 		
-		LocalDate fecha1,fecha2;
+		LocalDate fecha1=null,fecha2=null;
 		boolean correcta1=false,correcta2=false;
 		int d=0, m=0, a=0;
 		
@@ -36,6 +36,7 @@ public class Ejercicio2 {
 					//si no quedaria en bucle infinito
 					System.out.println("Los datos introducidos tienen que ser números");
 					System.out.println(" ");
+					continue;
 				}
 				
 				try{
@@ -65,6 +66,7 @@ public class Ejercicio2 {
 					//si no quedaria en bucle infinito
 					System.out.println("Los datos introducidos tienen que ser números");
 					System.out.println(" ");
+					continue;
 				}
 				
 				try{
@@ -83,8 +85,13 @@ public class Ejercicio2 {
 		
 		System.out.println("----Ambas fechas son válidas, vamos a ordenarlas----");
 		
-		if(fecha1.getYear()>fecha2.getYear())
-			System.out.println();
+		if(fecha1.isBefore(fecha2)) {
+			System.out.println(fecha1);
+			System.out.println(fecha2);
+		}else {
+			System.out.println(fecha2);
+			System.out.println(fecha1);
+		}
 	}
 
 }
