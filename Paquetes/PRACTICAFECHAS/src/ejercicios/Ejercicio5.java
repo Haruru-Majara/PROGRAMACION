@@ -2,6 +2,7 @@ package ejercicios;
 
 import java.time.DateTimeException;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 /**
@@ -16,6 +17,7 @@ public class Ejercicio5 {
 		
 		int hora,minuto;
 		LocalTime hora1,hora2;
+		long minutos;
 		
 		do{
 			System.out.println("PRIMERA HORA: ");
@@ -25,12 +27,13 @@ public class Ejercicio5 {
 			minuto=sc.nextInt();
 			
 			if(!validarFecha(hora,minuto))
-				System.out.println("Fecha no válida, vuelva a introducir los datos.");
+				System.out.println("Hora no válida, vuelva a introducir los datos.");
 			
 			System.out.println(" ");
 		}while(!validarFecha(hora,minuto));
 		
-		fecha1=
+		hora1=LocalTime.of(hora, minuto);
+				
 		do {
 			System.out.println("SEGUNDA HORA: ");
 			System.out.println("Introduce una hora: (00-23)");
@@ -39,12 +42,20 @@ public class Ejercicio5 {
 			minuto=sc.nextInt();
 			
 			if(!validarFecha(hora,minuto))
-				System.out.println("Fecha no válida, vuelva a introducir los datos.");
+				System.out.println("Hora no válida, vuelva a introducir los datos.");
 			
 			System.out.println(" ");
 		}while(!validarFecha(hora,minuto));
 		
+		hora2=LocalTime.of(hora, minuto);
 		
+		if(hora1.isBefore(hora2)) {
+			minutos=ChronoUnit.MINUTES.between(hora1, hora2);
+			System.out.println("Entre las "+hora1+" y las "+hora2+" han pasado: "+minutos+" minutos.");
+		}else {
+			minutos=ChronoUnit.MINUTES.between(hora2, hora1);
+			System.out.println("Entre las "+hora2+" y las "+hora1+" han pasado: "+minutos+" minutos.");
+		}
 	}
 	public static boolean validarFecha(int h, int m) {
 		LocalTime fecha;

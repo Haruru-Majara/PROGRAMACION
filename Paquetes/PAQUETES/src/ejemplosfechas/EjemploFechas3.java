@@ -18,16 +18,16 @@ public class EjemploFechas3 {
 		LocalDate fechaActual = LocalDate.now(); 
 		System.out.println("Hoy sin patron:"+fechaActual); 
 
-		// Formateo para sacar la fecha en formato dia mes en letra año en 4 dígitos	 
-		//Creo el patrón
+		// Formateo para sacar la fecha en formato dia mes en letra aï¿½o en 4 dï¿½gitos	 
+		//Creo el patrï¿½n
 		DateTimeFormatter patron = DateTimeFormatter.ofPattern("dd MMMM yyyy"); 
-		//Aplico el patrón a mi fecha
+		//Aplico el patrï¿½n a mi fecha
 		System.out.println("Hoy con patron:"+patron.format(fechaActual));
 
-		//Formateo para sacar la fecha en formato dia/mes/año
-		//Creo el patrón
+		//Formateo para sacar la fecha en formato dia/mes/aï¿½o
+		//Creo el patrï¿½n
 		patron = DateTimeFormatter.ofPattern("dd/LL/yy"); 
-		//Aplico el patrón a mi fecha
+		//Aplico el patrï¿½n a mi fecha
 		System.out.println("Hoy con otro patron:"+patron.format(fechaActual));
 		/**************************************************************************/
 		//Leo una fecha con formato dd/LL/yy y construyo un objeto LocalDate
@@ -35,13 +35,13 @@ public class EjemploFechas3 {
 		String fechaAnotada=sc.nextLine();
 		try{
 			fecha=LocalDate.parse(fechaAnotada,patron);
-			System.out.println("Dia:"+fecha.getDayOfMonth()+",mes:"+fecha.getMonthValue()+",año:"+fecha.getYear());
-			// Día de la semana en inglés			
-			System.out.println("Día de la semana en inglés:"+ fecha.getDayOfWeek().name());
+			System.out.println("Dia:"+fecha.getDayOfMonth()+",mes:"+fecha.getMonthValue()+",aï¿½o:"+fecha.getYear());
+			// Dï¿½a de la semana en inglï¿½s			
+			System.out.println("Dï¿½a de la semana en inglÃ©s:"+ fecha.getDayOfWeek().name());
 			
-			// Para obtener el día de la semana en número
+			// Para obtener el dï¿½a de la semana en nï¿½mero
 			
-			System.out.println("Día de la semana en número:"+ fecha.getDayOfWeek().getValue());
+			System.out.println("DÃ­a de la semana en nÃºmero:"+ fecha.getDayOfWeek().getValue());
 		
 		}catch(DateTimeParseException e){
 			System.out.println("Formato incorrecto");
