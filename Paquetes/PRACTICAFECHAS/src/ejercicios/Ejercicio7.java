@@ -17,11 +17,13 @@ public class Ejercicio7 {
 		// TODO Auto-generated method stub
 		Scanner sc= new Scanner(System.in);
 		
+		boolean exito;
 		int d,m,a;
 		LocalDate fechaNac,fechaActual;
 		DateTimeFormatter patron = DateTimeFormatter.ofPattern("dd/LL/yyyy");
 		
 		do {
+			exito=false;
 			d=0;
 			m=0;
 			a=0;
@@ -40,11 +42,11 @@ public class Ejercicio7 {
 				System.out.println(" ");
 				continue; //volver al principio del bucle
 			}
-			
-			if(!validarFecha(d,m,a))
+			exito=validarFecha(d,m,a);
+			if(!exito)
 				System.out.println("Fecha incorrecta, inténtelo de nuevo.");
 			System.out.println(" ");
-		}while(!validarFecha(d,m,a));
+		}while(!exito);
 		
 		fechaNac=LocalDate.of(a, m, d);
 		
@@ -60,6 +62,8 @@ public class Ejercicio7 {
 	public static boolean validarFecha(int d,int m,int a) {
 		LocalDate fecha;
 		
+		if(a<=0)
+			return false;
 		try{
 			fecha=LocalDate.of(a,m,d); 
 			return true; 

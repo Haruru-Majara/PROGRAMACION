@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Simular durante 1 minuto el lanzamiento de un dado, pasado ese tiempo mostrar la cantidad de seises que han salido
+ * Simular durante 5 segundos el lanzamiento de un dado, pasado ese tiempo mostrar la cantidad de seises que han salido
  * */
 
 public class Ejercicio8 {

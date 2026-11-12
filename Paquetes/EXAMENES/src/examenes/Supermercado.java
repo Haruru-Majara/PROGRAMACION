@@ -1,8 +1,12 @@
 package examenes;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * Queremos simular la compra en un supermercado de una persona, haz un programa en java,
 utilizando las variables y constantes adecuadas y usando comentarios.
+
 Por cada persona que llega al supermercado se anota el presupuesto máximo del que dispone
 y después se simula la compra de varias unidades de varios productos de la siguiente manera:
 
@@ -39,6 +43,7 @@ euros. (1,5 pto)
 Al Terminar el programa:
 
 - Mostrad de todos los envíos realizados, el porcentaje realizado a jubilados. (0,5 pto)
+
 - Mostrad el importe medio de todas las compras realizadas, y el importe de las dos
 compras más caras. (1 pto)
  * 
@@ -48,7 +53,22 @@ public class Supermercado {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Scanner sc=new Scanner(System.in);
+		Random r=new Random();
+		
+		double presupuesto;
+		int cont=1;
+		String codigoProd;
+		String patron="^[A-Z]{2}[0-9}[2,3]$";
+		
+		do {
+			System.out.println("Cliente: "+cont);
+			System.out.print("Tu presupuesto es: ");
+			presupuesto=sc.nextDouble();
+			
+			
+			
+		}while(presupuesto!=0);
 	}
 
 }

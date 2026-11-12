@@ -15,12 +15,9 @@ public class Ejercicio2 {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		
-		
-		
 		LocalDate fecha1=null,fecha2=null;
 		boolean correcta1=false,correcta2=false;
 		int d=0, m=0, a=0;
-		
 		
 			do {
 				System.out.println("---PRIMERA FECHA--- ");

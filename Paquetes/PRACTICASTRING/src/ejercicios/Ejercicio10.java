@@ -94,22 +94,23 @@ public class Ejercicio10 {
 	}
 	public static boolean validarAlgo(int opc, String cad,char ex) {
 		String patron;
+		String letras;
 		
 		switch(opc) {
 		case 1:
-			patron="[0-9]{4}[A-Za-z]{3}";
+			patron="^[0-9]{4}[^0-9a-zñAEIOUÑ]{3}$";
 			if(cad.matches(patron))
 				return true;
 			return false;
 		case 2:
 			if(ex=='S') {
-				patron="[XYZxyz][0-9]{7}[A-Za-z]";
+				patron="^[XYZxyz][0-9]{7}[A-Za-z]$";
 				if(cad.matches(patron))
 					return true;
 				return false;
 			}else {
-				String letras="TRWAGMYFPDXBNJZSQVHLCKE";
-				patron ="^[0-9]{8}[A-Za-z]";
+				letras="TRWAGMYFPDXBNJZSQVHLCKE";
+				patron ="^[0-9]{8}[A-Za-z]$";
 				
 				if(!cad.matches(patron))
 					return false;
@@ -126,17 +127,17 @@ public class Ejercicio10 {
 				}
 			}
 		case 3:
-			patron="28[0-9]{3}";
+			patron="^28[0-9]{3}$";
 			if(cad.matches(patron))
 				return true;
 			return false;
 		case 4:
-			patron="[679][0-9]{8}";
+			patron="^[679][0-9]{8}$";
 			if(cad.matches(patron))
 				return true;
 			return false;
 		case 5:
-			patron="[A-Za-z][0-9A-Za-z]{5,9}";
+			patron="^[A-Za-z][0-9A-Za-z]{4,9}$";
 			if(cad.matches(patron))
 				return true;
 			return false;
