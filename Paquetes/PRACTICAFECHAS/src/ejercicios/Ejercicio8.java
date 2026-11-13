@@ -14,11 +14,13 @@ public class Ejercicio8 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
+		Random r=new Random();
+		
 		LocalTime ahora,despues;
 		Duration duracion;
 		int cont=0,dado;
 		long segundosPasados=0;
-		Random r=new Random();
+		
 		
 		ahora=LocalTime.now();
 		//System.out.println(ahora);

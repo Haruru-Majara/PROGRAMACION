@@ -56,19 +56,92 @@ public class Supermercado {
 		Scanner sc=new Scanner(System.in);
 		Random r=new Random();
 		
-		double presupuesto;
-		int cont=1;
+		double presupuesto,precioProd;
+		int cont=1,cantProd;
 		String codigoProd;
 		String patron="^[A-Z]{2}[0-9}[2,3]$";
+		char otro;
+		boolean codigoBueno=false;
 		
 		do {
+			//Contador clientes
 			System.out.println("Cliente: "+cont);
-			System.out.print("Tu presupuesto es: ");
-			presupuesto=sc.nextDouble();
-			
-			
-			
+			//Validar presupuesto
+			do {
+				System.out.print("Tu presupuesto es: ");
+				presupuesto=sc.nextDouble();
+				
+				if(presupuesto<0)
+					System.out.println("Error en el presupuesto.Introduzca de nuevo la cantidad.");
+			}while(presupuesto<0);
+			//Anotar productos
+			sc.nextLine();
+			do {
+				//Validar codigo con funcion hasta que sea correcto
+				do {
+					System.out.println("Anota código de producto: ");
+					codigoProd=sc.nextLine();
+					
+					codigoBueno=codigoCorrecto(codigoProd);
+					if(!codigoBueno)
+						System.out.println("Codigo introducido incorrecto, pruebe otra vez.");
+				}while(!codigoBueno);
+				
+				//Calcular unidades aleatoriamente entre 1 y 4
+				cantProd=r.nextInt(4)+1;
+				System.out.println("Cantidad de productos de "+codigoProd+": "+cantProd);
+				
+				//Pedir precio por unidad y validarlo
+				do {
+					System.out.println("El precio por unidad de "+codigoProd+" es:");
+					precioProd=sc.nextDouble();
+					
+					if(precioProd<=0)
+						System.out.println("El precio tiene que ser positivo.");
+					
+				}while(precioProd<=0);
+				
+				System.out.println("¿Quieres comprar algo más?");
+				otro=Character.toUpperCase(sc.nextLine().charAt(0));
+			}while(otro=='S');
 		}while(presupuesto!=0);
+	}
+	
+	public static double calcularPrecio(String codigo,int cantidad,double precio) {
+		double precioInicial,precioFinal=0;
+		char seccion;
+		int gratis;
+		
+		seccion=codigo.charAt(1);
+		
+		precioInicial=cantidad*precio;
+		
+		switch(seccion) {
+		case 'P':
+			precioFinal=precioInicial-(precioInicial*0.2);
+			break;
+		case 'L':
+			gratis=cantidad/3;
+			cantidad=cantidad-gratis;
+				
+			precioFinal=cantidad*precioInicial;
+			break;
+		default:
+			precioFinal=precioInicial;
+			break;
+		}
+		return precioFinal;
+	}
+	
+	public static boolean codigoCorrecto(String codigo) {
+		String patron;
+			
+		patron="^[A-Z]{2}[0-9]{2,3}$";
+			
+		if(codigo.matches(patron))
+			return true;
+		return false;
+		
 	}
 
 }
