@@ -1,5 +1,10 @@
 package examenes;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -56,16 +61,34 @@ public class Supermercado {
 		Scanner sc=new Scanner(System.in);
 		Random r=new Random();
 		
-		double presupuesto,precioProd;
-		int cont=1,cantProd;
-		String codigoProd;
-		String patron="^[A-Z]{2}[0-9}[2,3]$";
-		char otro;
-		boolean codigoBueno=false;
+		double presupuesto=0,precioProd,precioFin,valorCompra=0,valorFinalCompra=0,plusEnvio=0,enviosPorcentajeJubilados,mediaCompras,comprasTotales=0;
+		int cantProd=0,zona=0,envios=0,enviosJubilados=0,enviosTotales=0,numCompras=0,cliente=1;
+		String codigoProd,fechaCompra;
+		boolean codigoBueno=false,fechaBuena=false;
+		char aDomicilio,jubilado;
+		sc.useLocale(Locale.ENGLISH);
+		
 		
 		do {
-			//Contador clientes
-			System.out.println("Cliente: "+cont);
+			System.out.println("---BIENVENIDO A NUESTRO SUPERMERCADO---");
+			
+			//SacarFecha de compra
+			do{
+				System.out.println(" ");
+				System.out.println("Cliente "+cliente+":");
+				System.out.println("Anota fecha de compra (dd/mm/aaaa):");
+				fechaCompra=sc.nextLine();
+				
+				fechaBuena=validarFecha(fechaCompra);
+				
+				if(fechaBuena==true)
+					System.out.println("Fecha de compra correcta: "+fechaCompra);
+				else
+					System.out.println("Fecha incorrecta. Anota de nuevo la fecha.");
+				
+				System.out.println(" ");
+			}while(fechaBuena==false);
+			
 			//Validar presupuesto
 			do {
 				System.out.print("Tu presupuesto es: ");
@@ -73,41 +96,171 @@ public class Supermercado {
 				
 				if(presupuesto<0)
 					System.out.println("Error en el presupuesto.Introduzca de nuevo la cantidad.");
+				
+				sc.nextLine(); //LIMPIAMOS PARA QUE NO DE ERROR EN LA CADENA DE CODIGO
 			}while(presupuesto<0);
+			
+			if(presupuesto==0)
+				break;
 			//Anotar productos
-			sc.nextLine();
 			do {
 				//Validar codigo con funcion hasta que sea correcto
 				do {
-					System.out.println("Anota código de producto: ");
+					System.out.println("Anota código de producto: (2 letras mayúsculas y 2 o 3 números. Anotar FIN si ya no se quiere continuar).");
 					codigoProd=sc.nextLine();
 					
+					//Mirar si el codigo es Fin, cambiar la variable a true porque queremos salir.
+					if(codigoProd.equalsIgnoreCase("FIN")) {
+						codigoBueno=true;
+						break;
+					}
+					//Codigo pasa a funcion
 					codigoBueno=codigoCorrecto(codigoProd);
+					
 					if(!codigoBueno)
 						System.out.println("Codigo introducido incorrecto, pruebe otra vez.");
 				}while(!codigoBueno);
 				
-				//Calcular unidades aleatoriamente entre 1 y 4
-				cantProd=r.nextInt(4)+1;
-				System.out.println("Cantidad de productos de "+codigoProd+": "+cantProd);
+				//Si el codigo NO es FIN
+				if(!codigoProd.equalsIgnoreCase("FIN")) {
+					//Calcular unidades aleatoriamente entre 1 y 4
+					cantProd=r.nextInt(4)+1;
+					System.out.println("Cantidad de productos de "+codigoProd+": "+cantProd);
 				
-				//Pedir precio por unidad y validarlo
+					//Pedir precio por unidad y validarlo
+					do {
+						System.out.println("El precio por unidad de "+codigoProd+" es:");
+						precioProd=sc.nextDouble();
+					
+						if(precioProd<=0)
+							System.out.println("El precio tiene que ser positivo.");
+					
+					}while(precioProd<=0);
+					
+					//Calcula con funcion precio final del producto
+					precioFin=calcularPrecioProducto(codigoProd,cantProd,precioProd);
+					
+					//Ver si tiene presupuesto aun para comprar el producto y descontarlo del mismo
+					if(precioFin>presupuesto)
+						System.out.println("No se puede comprar esto, no hay suficiente dinero.");
+					else {
+						presupuesto=presupuesto-precioFin;
+						valorCompra=valorCompra+precioFin;
+						System.out.println("El producto "+codigoProd+" le ha costado: "+precioFin);
+					}
+					
+					//Enseño presupuesto restante
+					System.out.println("Le quedan: "+presupuesto+" euros.");
+					sc.nextLine();//Volvemos a limpiar para que no de error arriba cuando se pida codigo.
+				}else //Si el codigo ES FIN
+					break;
+			}while(!codigoProd.equalsIgnoreCase("FIN"));
+			
+			//Calculamos mediante funcion el valor total SOLO de los productos
+			valorFinalCompra=descuentoDiaSemana(fechaCompra,valorCompra);
+			
+			//Pedir y verificar el a domicilio
+			do {
+				System.out.println("¿Tu pedido es a domicilio? (S,N)");
+				aDomicilio=Character.toUpperCase(sc.nextLine().charAt(0));
+				
+				if(aDomicilio!='S' && aDomicilio!='N')
+					System.out.println("Error en pedido.");
+				
+			}while(aDomicilio!='S' && aDomicilio!='N');
+			
+			//Ramificación envío
+			if(aDomicilio=='N') 
+				System.out.println("Tu compra al final es de: "+valorFinalCompra+" euros.");
+			else {
 				do {
-					System.out.println("El precio por unidad de "+codigoProd+" es:");
-					precioProd=sc.nextDouble();
+					try {
+						System.out.println("Zona de envio: ");
+						zona=sc.nextInt();
+						
+						if(zona<1 || zona>3)
+							System.out.println("La zona no corresponde, intentar de nuevo.");
+					}catch(InputMismatchException e) {
+						sc.nextLine();
+						System.out.println("Se esperaba un número.");
+					}
 					
-					if(precioProd<=0)
-						System.out.println("El precio tiene que ser positivo.");
-					
-				}while(precioProd<=0);
+				}while(zona<1 || zona>3);
 				
-				System.out.println("¿Quieres comprar algo más?");
-				otro=Character.toUpperCase(sc.nextLine().charAt(0));
-			}while(otro=='S');
+				sc.nextLine();
+				
+				do {
+					System.out.println("¿Eres jubilado? (S/N)");
+					jubilado=Character.toUpperCase(sc.nextLine().charAt(0));
+					
+					if(jubilado!='S' && jubilado!='N')
+						System.out.println("Error en pedido.");
+					
+				}while(jubilado!='S' && jubilado!='N');
+				
+				if(jubilado=='S') {
+					System.out.println("El envío le sale gratis, el precio final de la compra es: "+valorFinalCompra+" euros");
+					enviosJubilados++;
+				}else {
+					
+					switch(zona) {
+					case 1:
+						plusEnvio=5;
+						break;
+					case 2:
+						plusEnvio=7;
+						break;
+					case 3:
+						plusEnvio=10;
+						break;
+					}
+					
+					valorFinalCompra=valorFinalCompra+plusEnvio;
+					System.out.println("El envío le costará "+plusEnvio+", el precio final de la compra es: "+valorFinalCompra+" euros.");
+				}	
+				
+			}
+			envios++;
+			numCompras++;
+			comprasTotales=comprasTotales+valorFinalCompra;
+			cliente++;
+			valorFinalCompra=0;
+			System.out.println("");
+			
 		}while(presupuesto!=0);
+		
+		enviosTotales=envios+enviosJubilados;
+		enviosPorcentajeJubilados=(enviosJubilados*100)/enviosTotales;
+		
+		System.out.println(" ");
+		System.out.println("----INFORME DE COMPRAS----");
+		System.out.println(" ");
+		System.out.println("El porcentaje de envios a Jubilados es: "+enviosPorcentajeJubilados+"%");
+		
+		mediaCompras=comprasTotales/numCompras;
+		
+		System.out.println("La media de las compras es de: "+mediaCompras+" euros.");
 	}
 	
-	public static double calcularPrecio(String codigo,int cantidad,double precio) {
+	public static double descuentoDiaSemana (String fecha, double totalCompra) {
+		int diaSemana;
+		LocalDate fechaCompra;
+		double precioFinal;
+		DateTimeFormatter patron = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		fechaCompra=LocalDate.parse(fecha,patron);
+		diaSemana=fechaCompra.getDayOfWeek().getValue();
+		
+		switch(diaSemana) {
+		case 2,3:
+			precioFinal=totalCompra-totalCompra*0.05;
+		default:
+			precioFinal=totalCompra;
+		}
+		return precioFinal;
+	}
+	
+	public static double calcularPrecioProducto(String codigo,int cantidad,double precio) {
 		double precioInicial,precioFinal=0;
 		char seccion;
 		int gratis;
@@ -143,5 +296,21 @@ public class Supermercado {
 		return false;
 		
 	}
-
+	
+	public static boolean validarFecha(String fecha) {
+		
+		LocalDate fechaHoy=LocalDate.now();
+		DateTimeFormatter patron = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		try {
+			LocalDate fechaCompra=LocalDate.parse(fecha,patron);
+			
+			if(fechaCompra.isBefore(fechaHoy))
+				return true;
+			return false;
+		}catch(DateTimeParseException e) {
+			return false;
+		}
+		
+	}
 }
