@@ -68,8 +68,6 @@ public class Supermercado {
 		boolean codigoBueno=false,fechaBuena=false;
 		char aDomicilio,jubilado;
 		
-		
-		
 		do {
 			System.out.println("---BIENVENIDO A NUESTRO SUPERMERCADO---");
 			
