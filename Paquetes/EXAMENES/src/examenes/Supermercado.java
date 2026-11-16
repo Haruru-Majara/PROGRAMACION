@@ -60,13 +60,14 @@ public class Supermercado {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		Random r=new Random();
+		sc.useLocale(Locale.ENGLISH);
 		
 		double presupuesto=0,precioProd,precioFin,valorCompra=0,valorFinalCompra=0,plusEnvio=0,enviosPorcentajeJubilados,mediaCompras,comprasTotales=0;
 		int cantProd=0,zona=0,envios=0,enviosJubilados=0,enviosTotales=0,numCompras=0,cliente=1;
 		String codigoProd,fechaCompra;
 		boolean codigoBueno=false,fechaBuena=false;
 		char aDomicilio,jubilado;
-		sc.useLocale(Locale.ENGLISH);
+		
 		
 		
 		do {
@@ -91,7 +92,7 @@ public class Supermercado {
 			
 			//Validar presupuesto
 			do {
-				System.out.print("Tu presupuesto es: ");
+				System.out.println("Tu presupuesto es: ");
 				presupuesto=sc.nextDouble();
 				
 				if(presupuesto<0)
@@ -220,11 +221,13 @@ public class Supermercado {
 				}	
 				
 			}
+			
 			envios++;
 			numCompras++;
 			comprasTotales=comprasTotales+valorFinalCompra;
 			cliente++;
 			valorFinalCompra=0;
+			plusEnvio=0;
 			System.out.println("");
 			
 		}while(presupuesto!=0);
