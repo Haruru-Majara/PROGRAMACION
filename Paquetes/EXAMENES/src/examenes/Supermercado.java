@@ -65,8 +65,10 @@ public class Supermercado {
 		double presupuesto=0,precioProd,precioFin,valorCompra=0,valorFinalCompra=0,plusEnvio=0,enviosPorcentajeJubilados,mediaCompras,comprasTotales=0;
 		int cantProd=0,zona=0,envios=0,enviosJubilados=0,enviosTotales=0,numCompras=0,cliente=1;
 		String codigoProd,fechaCompra;
-		boolean codigoBueno=false,fechaBuena=false;
+		boolean codigoBueno=false;
+		LocalDate fecha;
 		char aDomicilio,jubilado;
+	
 		
 		do {
 			System.out.println("---BIENVENIDO A NUESTRO SUPERMERCADO---");
@@ -78,15 +80,16 @@ public class Supermercado {
 				System.out.println("Anota fecha de compra (dd/mm/aaaa):");
 				fechaCompra=sc.nextLine();
 				
-				fechaBuena=validarFecha(fechaCompra);
+				fecha=validarFecha(fechaCompra);
 				
-				if(fechaBuena==true)
+				
+				if(fecha!=null)
 					System.out.println("Fecha de compra correcta: "+fechaCompra);
 				else
 					System.out.println("Fecha incorrecta. Anota de nuevo la fecha.");
 				
 				System.out.println(" ");
-			}while(fechaBuena==false);
+			}while(fecha==null);
 			
 			//Validar presupuesto
 			do {
@@ -156,7 +159,7 @@ public class Supermercado {
 			}while(!codigoProd.equalsIgnoreCase("FIN"));
 			
 			//Calculamos mediante funcion el valor total SOLO de los productos
-			valorFinalCompra=descuentoDiaSemana(fechaCompra,valorCompra);
+			valorFinalCompra=descuentoDiaSemana(fecha,valorCompra);
 			
 			//Pedir y verificar el a domicilio
 			do {
@@ -243,13 +246,11 @@ public class Supermercado {
 		System.out.println("La media de las compras es de: "+mediaCompras+" euros.");
 	}
 	
-	public static double descuentoDiaSemana (String fecha, double totalCompra) {
+	public static double descuentoDiaSemana (LocalDate fechaCompra, double totalCompra) {
 		int diaSemana;
-		LocalDate fechaCompra;
+	
 		double precioFinal;
-		DateTimeFormatter patron = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
-		fechaCompra=LocalDate.parse(fecha,patron);
 		diaSemana=fechaCompra.getDayOfWeek().getValue();
 		
 		switch(diaSemana) {
@@ -290,7 +291,7 @@ public class Supermercado {
 	public static boolean codigoCorrecto(String codigo) {
 		String patron;
 			
-		patron="^[A-Z]{2}[0-9]{2,3}$";
+		patron="^P[A-Z][0-9]{2,3}$";
 			
 		if(codigo.matches(patron))
 			return true;
@@ -298,7 +299,7 @@ public class Supermercado {
 		
 	}
 	
-	public static boolean validarFecha(String fecha) {
+	public static LocalDate validarFecha(String fecha) {
 		
 		LocalDate fechaHoy=LocalDate.now();
 		DateTimeFormatter patron = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -307,10 +308,10 @@ public class Supermercado {
 			LocalDate fechaCompra=LocalDate.parse(fecha,patron);
 			
 			if(fechaCompra.isBefore(fechaHoy))
-				return true;
-			return false;
+				return fechaCompra;
+			return null;
 		}catch(DateTimeParseException e) {
-			return false;
+			return null;
 		}
 		
 	}
