@@ -93,7 +93,7 @@ public class AbonoTeatro {
 		contraseña=abono.substring(0, 2);
 		
 		for(int i=0;i<5;i++) {
-			alea=r.nextInt(0,10);
+			alea=r.nextInt(0,10); //numero aleatorio entre 0 y 9
 			contraseña=contraseña+alea;
 		}
 		
