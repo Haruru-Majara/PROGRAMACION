@@ -161,6 +161,7 @@ public class ExamenRA2RA3 {
 				nClientes++;
 			}while(otroModelo=='S');
 			otroModelo=' ';
+			horaCorrecta=false;
 	}while(patSup>0 || patBas>0);
 		
 	System.out.println("Importe total recaudado: "+impTotal);
@@ -199,6 +200,7 @@ public class ExamenRA2RA3 {
 		double precio;
 		boolean carnetCorrecto;
 		
+		double descuento=Double.parseDouble(carnet.substring(4));
 		carnetCorrecto=validarCarnet(carnet);
 		
 		horas=minutos/60;
@@ -219,7 +221,7 @@ public class ExamenRA2RA3 {
 		}
 		
 		if(carnetCorrecto)
-			precio=precio*0.88;
+			precio=precio-precio*descuento/100;
 		else {
 			if(!carnetCorrecto && horas>3)
 				precio=precio*0.90;
