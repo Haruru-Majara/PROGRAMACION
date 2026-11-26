@@ -2,8 +2,8 @@ package ejexcepciones;
 import java.util.*;
 
 /**
- * Programa que recibe un número y devuelve el número de divisores de éste.
- * Descarta usando excepciones los números incorrectos o los menores o iguales que 0
+ * Programa que recibe un nÃºmero y devuelve el nÃºmero de divisores de este.
+ * Descarta usando excepciones los nÃºmeros incorrectos o los menores o iguales que 0
  * @author Bego
  *
  */
@@ -14,10 +14,10 @@ public class ExcepcionPropia {
 		// TODO Auto-generated method stub
 		int numero;
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Introduce un número:");
+		System.out.println("Introduce un nÃºmero:");
 		try{
 			numero=sc.nextInt();
-			System.out.println("Número de divisores:"+divisoresNumero(numero));
+			System.out.println("NÃºmero de divisores:"+divisoresNumero(numero));
 			
 		}catch(InputMismatchException e){
 			System.out.println("Formato incorrecto");
@@ -29,10 +29,10 @@ public class ExcepcionPropia {
 	}
 	
 	/**
-	 * Función que recibe un número y devuelve el número de divisores de éste
-	 * @param num número a procesar
-	 * @return número de divisores
-	 * @throws NumeroIncorrectoException si el número recibido es negativo ó 0
+	 * FunciÃ³n que recibe un nÃºmero y devuelve el nÃºmero de divisores de este
+	 * @param num nÃºmero a procesar
+	 * @return nÃºmero de divisores
+	 * @throws NumeroIncorrectoException si el nÃºmero recibido es negativo o 0
 	 */
 	
 	public static int divisoresNumero(int num) throws NumeroIncorrectoException{

@@ -3,8 +3,8 @@ package ejexcepciones;
 import java.util.*;
 public class Excepciones2 {
 	
-	// Programa que lee dos números y calcula su división.
-	// Controla mediante excepciones que no se anote un dato no numérico
+	// Programa que lee dos nÃºmeros y calcula su divisiÃ³n.
+	// Controla mediante excepciones que no se anote un dato no numï¿½rico
 	// y que no se divida por cero.
 	// Usando funciones
 	
@@ -17,17 +17,17 @@ public class Excepciones2 {
 		
 		do{
 			numero1=leerInt();
-			System.out.println("Número leido:"+numero1);
+			System.out.println("NÃºmero leido:"+numero1);
 			
 			numero2=leerInt();
-			System.out.println("Número leido:"+numero2);
+			System.out.println("NÃºmero leido:"+numero2);
 			
 			try{
 				div=dividir(numero1,numero2);
-				System.out.println("La división es:"+div);
+				System.out.println("La divisiÃ³n es:"+div);
 				correcto=true;
 			}catch(ArithmeticException e){
-				System.out.println("Vuelva a anotar los números:");
+				System.out.println("Vuelva a anotar los nÃºmeros:");
 				
 			}
 		}while(!correcto);

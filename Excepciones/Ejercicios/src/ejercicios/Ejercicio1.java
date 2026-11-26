@@ -1,5 +1,6 @@
 package ejercicios;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,15 @@ public class Ejercicio1 {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		
+		double num;
 		
+		try {
+			System.out.println("Anota un número: ");
+			num=sc.nextDouble();
+		}catch(InputMismatchException e) {
+			sc.nextLine();
+			System.out.println("Error, se esperaba un número.");
+		}
 	}
 
 }

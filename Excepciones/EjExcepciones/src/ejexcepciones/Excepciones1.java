@@ -3,7 +3,7 @@ package ejexcepciones;
 import java.util.*;
 public class Excepciones1 {
 	
-// Programa que lee dos nï¿½meros y calcula su divisiï¿½n.
+// Programa que lee dos numeros y calcula su divisiï¿½n.
 // Controla mediante excepciones que no se anote un dato no numï¿½rico
 // y que no se divida por cero
 
@@ -22,33 +22,33 @@ public class Excepciones1 {
 				correcto=true;
 			}catch(InputMismatchException e) {
 				sc.nextLine();
-				System.out.println("Formato primer número incorrecto");
+				System.out.println("Formato primer nÃºmero incorrecto");
 				
 			}
 		}
-		System.out.println("Número leido:"+numero1);
+		System.out.println("NÃºmero leido:"+numero1);
 		
 		correcto=false;	
 		while(!correcto) {
 				
 				try {
-					System.out.println("Anota segundo número:");
+					System.out.println("Anota segundo nÃºmero:");
 					numero2=sc.nextInt();
 				
 					correcto=true;
 				}catch(InputMismatchException e) {
 					sc.nextLine();
-					System.out.println("Formato segundo número incorrecto");
+					System.out.println("Formato segundo nÃºmero incorrecto");
 					
 				}
 			
 		}
 		
-		System.out.println("Número leido:"+numero2);
+		System.out.println("NÃºmero leido:"+numero2);
 		
 		try {
 			div=numero1/numero2;
-			System.out.println("La división es:"+div);
+			System.out.println("La divisiÃ³n es:"+div);
 		}catch(ArithmeticException e) {
 			System.out.println("No se puede dividir por cero");
 		}
