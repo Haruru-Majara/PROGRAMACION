@@ -4,8 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // Lee una cadena.
-// A continuaci髇 lee una posici髇 hasta que sea correcta
-// y muestra el caracter de esa posici髇
+// A continuaci贸n lee una posici贸n hasta que sea correcta
+// y muestra el caracter de esa posici贸n
 
 public class Excepciones3 {
 
@@ -18,7 +18,7 @@ public class Excepciones3 {
 		String cadena = sc.nextLine();
 
 		while (!correcto) {
-			System.out.println("Introduce posici髇: ");
+			System.out.println("Introduce posici贸n: ");
 			try {
 				pos = sc.nextInt();
 				System.out.println(cadena.charAt(pos));
